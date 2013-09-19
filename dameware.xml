@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  NOTES
-  1) Where is the 64 bit binary installed??
-  2) You have to rename the files you download
--->
-
 <!DOCTYPE dameware6 [
   <!ENTITY id "dameware6">
   <!ENTITY version "6.8.1.4">
@@ -25,6 +19,12 @@
   <!ENTITY uninstall_64bit "DameWare Mini Remote Control 7.2">
   <!ENTITY nitropdf SYSTEM "../templates/msi.xml">
 ]>
+
+<!--
+  NOTES
+  1) Where is the 64 bit binary installed??
+  2) You have to rename the files you download
+-->
 
 <packages>
 
