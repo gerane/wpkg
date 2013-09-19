@@ -88,7 +88,7 @@ dcsu: [
 ],
 
 :firefox => [
-  {:url => 'ftp://ftp.mozilla.org/pub/firefox/releases/%version%/win32/%language%/Firefox Setup %version%.exe',
+  {:url => 'http://ftp.mozilla.org/pub/firefox/releases/%version%/win32/%language%/Firefox Setup %version%.exe',
   :destination => ['Mozilla', 'Firefox', 'Firefox Setup %version%.exe'],
   :package_id => 'firefox',
   :language => 'en-US'},
