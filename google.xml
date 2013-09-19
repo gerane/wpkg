@@ -19,12 +19,14 @@
   reboot="false"
   priority="10">
 
-  <variable name="version" value="6.0.3.2197" />
-  <variable name="shortversion" value="6.0" />
+  <variable name="version" value="7.1.1.1888" />
+  <variable name="shortversion" value="7.1" />
 
   <check type="uninstall" condition="versiongreaterorequal" path="Google Earth" value="%version%" />
 
+  <!--
   <install   cmd='%COMSPEC% /C "md %SystemDrive%\netinst\logs\"' ><exit code="1" /></install>
+  -->
   <install   cmd='msiexec %MSI% /i "%SOFTWARE%\Google\Google Earth\%shortversion%\Google Earth.msi"' />
 
   <upgrade   include='install' />
