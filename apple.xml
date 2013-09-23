@@ -23,7 +23,7 @@ NOTES
   <depends package-id="quicktime" />
   -->
 
-  <variable name="version" value="11.0.4.4" />
+  <variable name="version" value="11.1.0.126" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\iTunes\%version%\iTunes.msi"   architecture="x86" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\iTunes\%version%\iTunes64.msi" architecture="x64" />
 
@@ -54,7 +54,7 @@ NOTES
   reboot="false"
   priority="10">
 
-  <variable name="version" value="6.1.0.13" />
+  <variable name="version" value="7.0.0.117" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\MobileDevice\%version%\AppleMobileDeviceSupport.msi"   architecture="x86" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\MobileDevice\%version%\AppleMobileDeviceSupport64.msi" architecture="x64" />
 
@@ -73,7 +73,7 @@ NOTES
   reboot="false"
   priority="10">
 
-  <variable name="version" value="2.3.4" />
+  <variable name="version" value="2.3.6" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\AppleApplicationSupport.msi" />
 
   <check type="uninstall"  condition="versiongreaterorequal" path="Apple Application Support" value="%version%"/>
