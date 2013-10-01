@@ -11,11 +11,11 @@
 <package
   id="openvpn"
   name="OpenVPN Client"
-  revision="%version%-4"
+  revision="%version%-0"
   reboot="false"
   priority="1"> <!-- run it late to enable updates via VPN -->
 
-  <variable name="version" value="2.3.1-I001" />
+  <variable name="version" value="2.3.2-I003" />
 
   <variable name="PKG_SOURCE_DIR"  value="%SOFTWARE%\OpenVPN" />
   <variable name="PKG_SOURCE"      value="%PKG_SOURCE_DIR%\openvpn-install-%version%-i686.exe"   architecture="x86" />
@@ -27,7 +27,7 @@
 
   <install include='kill' />
   <install cmd='%COMSPEC% /C certutil -addstore "TrustedPublisher" "%CERTIFICATE%" >NUL' />
-  <install cmd='"%PKG_SOURCE%" /S'><exit code="3010" /></install>
+  <install cmd='"%PKG_SOURCE%" /S >NUL'><exit code="3010" /></install>
   <install cmd='%COMSPEC% /c xcopy /Y "%PKG_SOURCE%" c:\ >NUL'><exit code="any" /></install>
 
   <upgrade   include='install' />
