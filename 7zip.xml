@@ -34,12 +34,15 @@
   <package
     id="7zipbeta"
     name="7-Zip BETA (32 and 64 bit)"
-    revision="%version%-1"
+    revision="%version%-0"
     reboot="false"
     priority="0">
 
-    <variable name="version" value="9.21" />
-    <variable name="fileversion" value="921" />
+    <variable name="version" value="9.30" />
+    <variable name="fileversion" value="930" />
+    <variable name="PKG_SOURCE" value="%SOFTWARE%\7zip\7z%fileversion%.msi"     architecture="x86" />
+    <variable name="PKG_SOURCE" value="%SOFTWARE%\7zip\7z%fileversion%-x64.msi" architecture="x64" />
+    <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\7-Zip" />
 
     <check type="logical" condition="or">
       <check type="uninstall" condition="exists" path="7-Zip %version% beta"/>
@@ -47,14 +50,14 @@
       <check type="uninstall" condition="exists" path="7-Zip %version% (x64 edition)" /> <!-- No beta on the 64-bit version. Why? No clue. -->
     </check>
 
-    <install cmd='msiexec /i "%SOFTWARE%\7zip\%PROCESSOR_ARCHITECTURE%\7z%fileversion%.msi" %MSI%'><exit code="3010" /></install>
+    <install cmd='msiexec /i "%PKG_SOURCE%" %MSI%'><exit code="3010" /></install>
     <install cmd='%COMSPEC% /c IF EXIST "%SOFTWARE%\7zip\7zip.reg" regedit /s "%SOFTWARE%\7zip\7zip.reg"'/>
     <install cmd='%COMSPEC% /c IF EXIST "%SOFTWARE%\7zip\7zip.cmd" "%SOFTWARE%\7zip\7zip.cmd"'/>
 
     <upgrade   include='install' />
     <downgrade include='install' />
 
-    <remove  cmd='msiexec /x "%SOFTWARE%\7zip\%PROCESSOR_ARCHITECTURE%\7z%fileversion%.msi" %MSI%'><exit code="3010" /></remove>
+    <remove  cmd='msiexec /x "%PKG_SOURCE%" %MSI%'><exit code="3010" /></remove>
   </package>
 
 </packages>
