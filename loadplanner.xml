@@ -33,7 +33,7 @@
 <package
   id="loadplanner"
   name="LoadPlanner"
-  revision="%version%-4"
+  revision="%version%-5"
   reboot="false"
   priority="10">
 
@@ -57,7 +57,7 @@
 
   <install cmd='%COMSPEC% /C mkdir "%TARGET%" >NUL'><exit code="any" /></install>
   <install cmd='%COMSPEC% /C copy /Y "%SOFTWARE%\LoadPlanner\*.msi" "%TARGET%" >NUL'><exit code="any" /></install>
-  <include include='remove' />
+  <install include='remove' />
   <install cmd='msiexec %MSI% /i "%TARGET%\LoadPlanner.msi" >NUL' timeout='300' />
   <install cmd='msiexec %MSI% /i "%TARGET%\%updatefile%" >NUL' timeout='300' />
   <install cmd='%COMSPEC% /c assoc .pjc=LoadPlanner >NUL' />
