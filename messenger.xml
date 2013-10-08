@@ -22,7 +22,7 @@
 <package
   id="livemessenger"
   name="Windows Live Messenger"
-  revision="%version%-17"
+  revision="%version%-18"
   reboot="false"
   priority="10">
 
@@ -45,6 +45,10 @@
 
   <install cmd='"%SOFTWARE%\Microsoft\Windows Live\2009\wlsetup-all.exe" %params%' timeout='600' os='windows xp' />
   <install cmd='"%SOFTWARE%\Microsoft\Windows Live\2011\wlsetup-all.exe" %params%' timeout='600' os='windows 7' />
+
+  <!-- without an upgrade/downgrade stanza the latest definition is not being pushed out -->
+  <upgrade   cmd='%COMSPEC% /c EXIT' />
+  <downgrade cmd='%COMSPEC% /c EXIT' />
 
   <remove  cmd='"%PKG_DESTINATION%"\Installer\wlarp.exe" /uninstall:all /q' timeout='600'><exit code='any' /></remove>
 
