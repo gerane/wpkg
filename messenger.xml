@@ -22,7 +22,7 @@
 <package
   id="livemessenger"
   name="Windows Live Messenger"
-  revision="%version%-16"
+  revision="%version%-17"
   reboot="false"
   priority="10">
 
