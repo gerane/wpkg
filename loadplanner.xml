@@ -33,7 +33,7 @@
 <package
   id="loadplanner"
   name="LoadPlanner"
-  revision="%version%-8"
+  revision="%version%-9"
   reboot="false"
   priority="10">
 
@@ -42,6 +42,7 @@
   <variable name="fileversion2" value="4.01.0009" />
   <variable name="updatefile" value="LoadPlanner 4109 update.msi" />
 
+  <variable name="PKG_SOURCE" value="%SOFTWARE%\LoadPlanner" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\LoadPlanner"      architecture="x86" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\LoadPlanner" architecture="x64" />
   <variable name="DESKTOP" value="%ALLUSERSPROFILE%\Desktop" os="windows xp" />
@@ -57,14 +58,14 @@
 
   <commands>
     <command type='copy' cmd='%COMSPEC% /C mkdir "%TARGET%" >NUL'><exit code="any" /></command>
-    <command type='copy' cmd='%COMSPEC% /C copy /Y "%SOFTWARE%\LoadPlanner\*.msi" "%TARGET%" >NUL'><exit code="any" /></command>
+    <command type='copy' cmd='%COMSPEC% /C copy /Y "%PKG_SOURCE%\*.msi" "%TARGET%" >NUL'><exit code="any" /></command>
     <command type='perms' cmd='%COMSPEC% /c echo Y | cacls "%PKG_DESTINATION%" /E /T /G Everyone:f >NUL'><exit code="8023" /></command>
   </commands>
 
   <install include='copy' />
   <install include='remove' />
-  <install cmd='msiexec %MSI% /i "%TARGET%\LoadPlanner.msi" >NUL' timeout='300' />
-  <install cmd='msiexec %MSI% /i "%TARGET%\%updatefile%" >NUL' timeout='300' />
+  <install cmd='msiexec %MSI% /i "%PKG_SOURCE%\LoadPlanner.msi" >NUL' timeout='300' />
+  <install cmd='msiexec %MSI% /i "%PKG_SOURCE%\%updatefile%" >NUL' timeout='300' />
   <install cmd='%COMSPEC% /c assoc .pjc=LoadPlanner >NUL' />
   <install cmd='%COMSPEC% /c ftype LoadPlanner="%PKG_DESTINATION%\LpMultiP.exe" "%1" >NUL' />
   <install cmd='%COMSPEC% /c copy /Y "%SOFTWARE%\LoadPlanner\ini.mdb" "%PKG_DESTINATION%" >NUL' />
@@ -73,16 +74,16 @@
   <install include='perms' />
 
   <upgrade include='copy' />
-  <upgrade cmd='msiexec %MSI% /i "%TARGET%\%updatefile%" >NUL' timeout='300' />
+  <upgrade cmd='msiexec %MSI% /i "%PKG_SOURCE%\%updatefile%" >NUL' timeout='300' />
   <upgrade include='perms' />
 
   <downgrade include='upgrade' />
 
-  <remove cmd='msiexec %MSI% /x "%TARGET%\%updatefile%"'    timeout='300'>
+  <remove cmd='msiexec %MSI% /x "%PKG_SOURCE%\%updatefile%" >NUL' timeout='300'>
     <exit code='1605' />
     <exit code='3010' />
   </remove>
-  <remove cmd='msiexec %MSI% /x "%TARGET%\LoadPlanner.msi"' timeout='300'>
+  <remove cmd='msiexec %MSI% /x "%PKG_SOURCE%\LoadPlanner.msi" >NUL' timeout='300'>
     <exit code='1605' />
     <exit code='3010' />
   </remove>
