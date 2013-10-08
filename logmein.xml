@@ -5,6 +5,6 @@
   <!ENTITY msi_64bit "%SOFTWARE%\LogMeIn\LogMeIn.msi">
   <!ENTITY uninstall_32bit "LogMeIn">
   <!ENTITY uninstall_64bit "LogMeIn">
-  <!ENTITY logmein SYSTEM "../templates/msi.xml">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
 ]>
-<packages>&logmein;</packages>
+<packages>&pkg;</packages>
