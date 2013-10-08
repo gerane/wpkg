@@ -1,20 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE dameware6 [
-  <!ENTITY id "dameware6">
-  <!ENTITY version "6.8.1.4">
-  <!ENTITY msi_32bit "%SOFTWARE%\DameWare\%PROCESSOR_ARCHITECTURE%\DWMRC6x.msi">
-  <!ENTITY msi_64bit "%SOFTWARE%\DameWare\%PROCESSOR_ARCHITECTURE%\DWMRC6x.msi">
-  <!ENTITY uninstall_32bit "DameWare Mini Remote Control">
-  <!ENTITY uninstall_64bit "DameWare Mini Remote Control">
-  <!ENTITY dameware6 SYSTEM "../templates/msi.xml">
-]>
-
-<!DOCTYPE dameware7 [
+<!DOCTYPE msi [
   <!ENTITY id "dameware7">
   <!ENTITY version "7.2.0.0">
-  <!ENTITY msi_32bit "%SOFTWARE%\DameWare\%PROCESSOR_ARCHITECTURE%\DWMRC7.msi">
-  <!ENTITY msi_64bit "%SOFTWARE%\DameWare\%PROCESSOR_ARCHITECTURE%\DWMRC7.msi">
+  <!ENTITY msi_32bit "DameWare\x86\DWMRC7.msi">
+  <!ENTITY msi_64bit "DameWare\amd64\DWMRC7.msi">
   <!ENTITY uninstall_32bit "DameWare Mini Remote Control 7.2">
   <!ENTITY uninstall_64bit "DameWare Mini Remote Control 7.2">
   <!ENTITY dameware7 SYSTEM "../templates/msi.xml">
@@ -38,8 +26,6 @@
   <depends package-id='dameware7' />
 
 </package>
-
-&dameware6;
 
 &dameware7;
 

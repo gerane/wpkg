@@ -1,30 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE msi [
+  <!ENTITY id "nitropdfpro8">
+  <!ENTITY name "Nitro PDF OCR">
+  <!ENTITY version "8.5.6.5">
+  <!ENTITY msi_32bit "NitroPDF\&version;\nitro_x86.msi">
+  <!ENTITY msi_64bit "NitroPDF\&version;\nitro_x64.msi">
+  <!ENTITY uninstall_32bit "Nitro PDF Professional">
+  <!ENTITY uninstall_64bit "Nitro PDF Professional (64-bit)">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
 
 <!--
   NOTES
   1) Extract the MSIs from the .exe you download from nitropdf.com by using /EXTRACTMSI:"path_to_msi_file"
   2) Priority is set to 15 making it install before PDF viewers that should have priority 10. This way the viewers are default.
 -->
-
-<!DOCTYPE nitropdf6 [
-  <!ENTITY id "nitropdfpro6">
-  <!ENTITY version "6.1.4.1">
-  <!ENTITY msi_32bit "%SOFTWARE%\NitroPDF\%version%\nitro_x86.msi">
-  <!ENTITY msi_64bit "%SOFTWARE%\NitroPDF\%version%\nitro_x64.msi">
-  <!ENTITY uninstall_32bit "Nitro PDF Professional">
-  <!ENTITY uninstall_64bit "Nitro PDF Professional (64-bit)">
-  <!ENTITY nitropdf6 SYSTEM "../templates/msi.xml">
-]>
-
-<!DOCTYPE nitropdf8 [
-  <!ENTITY id "nitropdfpro8">
-  <!ENTITY version "8.5.6.5">
-  <!ENTITY msi_32bit "%SOFTWARE%\NitroPDF\%version%\nitro_x86.msi">
-  <!ENTITY msi_64bit "%SOFTWARE%\NitroPDF\%version%\nitro_x64.msi">
-  <!ENTITY uninstall_32bit "Nitro PDF Professional">
-  <!ENTITY uninstall_64bit "Nitro PDF Professional (64-bit)">
-  <!ENTITY nitropdf8 SYSTEM "../templates/msi.xml">
-]>
 
 <packages>
 
@@ -39,8 +28,6 @@
 
 </package>
 
-&nitropdf6;
-
-&nitropdf8;
+&pkg;
 
 </packages>

@@ -1,0 +1,12 @@
+<!DOCTYPE msi [
+  <!ENTITY id "nitropdfpro6">
+  <!ENTITY name "Nitro PDF OCR">
+  <!ENTITY version "6.1.4.1">
+  <!ENTITY msi_32bit "NitroPDF\&version;\nitro_x86.msi">
+  <!ENTITY msi_64bit "NitroPDF\&version;\nitro_x64.msi">
+  <!ENTITY uninstall_32bit "Nitro PDF Professional">
+  <!ENTITY uninstall_64bit "Nitro PDF Professional (64-bit)">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
+
+<packages>&pkg;</packages>

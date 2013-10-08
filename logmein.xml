@@ -2,8 +2,8 @@
   <!ENTITY id "logmein">
   <!ENTITY name "LogMeIn">
   <!ENTITY version "4.1.2694">
-  <!ENTITY msi_32bit "%SOFTWARE%\LogMeIn\LogMeIn.msi">
-  <!ENTITY msi_64bit "%SOFTWARE%\LogMeIn\LogMeIn.msi">
+  <!ENTITY msi_32bit "LogMeIn\LogMeIn.msi">
+  <!ENTITY msi_64bit "LogMeIn\LogMeIn.msi">
   <!ENTITY uninstall_32bit "LogMeIn">
   <!ENTITY uninstall_64bit "LogMeIn">
   <!ENTITY pkg SYSTEM "../templates/msi.xml">
