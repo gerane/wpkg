@@ -11,9 +11,11 @@
 <package
   id="spark"
   name="Spark IM"
-  revision="%version%-0"
+  revision="%version%-1"
   reboot="false"
   priority="10">
+
+  <depends package-id='java' />
 
   <variable name="version"         value="2.6.3.12555" />
   <variable name="PKG_SOURCE"      value="%SOFTWARE%\SparkIM\spark_2_6_3.exe" />
