@@ -33,7 +33,7 @@
 <package
   id="loadplanner"
   name="LoadPlanner"
-  revision="%version%-9"
+  revision="%version%-10"
   reboot="false"
   priority="10">
 
@@ -74,7 +74,7 @@
   <install include='perms' />
 
   <upgrade include='copy' />
-  <upgrade cmd='msiexec %MSI% /i "%PKG_SOURCE%\%updatefile%" >NUL' timeout='300' />
+  <upgrade cmd='msiexec %MSI% /i "%PKG_SOURCE%\%updatefile%"' />
   <upgrade include='perms' />
 
   <downgrade include='upgrade' />
