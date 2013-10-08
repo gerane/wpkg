@@ -1,4 +1,4 @@
-<!DOCTYPE logmein [
+<!DOCTYPE msi [
   <!ENTITY id "logmein">
   <!ENTITY version "4.1.2694">
   <!ENTITY msi_32bit "%SOFTWARE%\LogMeIn\LogMeIn.msi">
