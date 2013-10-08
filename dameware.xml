@@ -1,13 +1,4 @@
-<!DOCTYPE msi [
-  <!ENTITY id "dameware7">
-  <!ENTITY name "DameWare Remote Control">
-  <!ENTITY version "7.2.0.0">
-  <!ENTITY msi_32bit "DameWare\x86\DWMRC7.msi">
-  <!ENTITY msi_64bit "DameWare\amd64\DWMRC7.msi">
-  <!ENTITY uninstall_32bit "DameWare Mini Remote Control 7.2">
-  <!ENTITY uninstall_64bit "DameWare Mini Remote Control 7.2">
-  <!ENTITY pkg SYSTEM "../templates/msi.xml">
-]>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
   NOTES
@@ -27,7 +18,5 @@
   <depends package-id='dameware7' />
 
 </package>
-
-&pkg;
 
 </packages>
