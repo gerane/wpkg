@@ -1,5 +1,6 @@
 <!DOCTYPE msi [
   <!ENTITY id "dameware6">
+  <!ENTITY name "DameWare Remote Control">
   <!ENTITY version "6.8.1.4">
   <!ENTITY msi_32bit "DameWare\x86\DWMRC6x.msi">
   <!ENTITY msi_64bit "DameWare\amd64\DWMRC6x.msi">
