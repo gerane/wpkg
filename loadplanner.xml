@@ -33,7 +33,7 @@
 <package
   id="loadplanner"
   name="LoadPlanner"
-  revision="%version%-7"
+  revision="%version%-8"
   reboot="false"
   priority="10">
 
@@ -70,6 +70,7 @@
   <install cmd='%COMSPEC% /c copy /Y "%SOFTWARE%\LoadPlanner\ini.mdb" "%PKG_DESTINATION%" >NUL' />
   <install cmd='%COMSPEC% /c IF NOT EXIST "%PKG_DESTINATION%\data5.mdb" XCOPY "%SOFTWARE%\LoadPlanner\data5.mdb" "%PKG_DESTINATION%" /Y >NUL' />
   <install cmd='%COMSPEC% /C move "%USERPROFILE%\Desktop\LoadPlanner.lnk" "%DESKTOP%"'><exit code="any" /></install>
+  <install include='perms' />
 
   <upgrade include='copy' />
   <upgrade cmd='msiexec %MSI% /i "%TARGET%\%updatefile%" >NUL' timeout='300' />
