@@ -7,7 +7,7 @@
   <!ENTITY msi_64bit "%SOFTWARE%\DameWare\%PROCESSOR_ARCHITECTURE%\DWMRC6x.msi">
   <!ENTITY uninstall_32bit "DameWare Mini Remote Control">
   <!ENTITY uninstall_64bit "DameWare Mini Remote Control">
-  <!ENTITY nitropdf SYSTEM "../templates/msi.xml">
+  <!ENTITY dameware6 SYSTEM "../templates/msi.xml">
 ]>
 
 <!DOCTYPE dameware7 [
@@ -17,7 +17,7 @@
   <!ENTITY msi_64bit "%SOFTWARE%\DameWare\%PROCESSOR_ARCHITECTURE%\DWMRC7.msi">
   <!ENTITY uninstall_32bit "DameWare Mini Remote Control 7.2">
   <!ENTITY uninstall_64bit "DameWare Mini Remote Control 7.2">
-  <!ENTITY nitropdf SYSTEM "../templates/msi.xml">
+  <!ENTITY dameware7 SYSTEM "../templates/msi.xml">
 ]>
 
 <!--
