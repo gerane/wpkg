@@ -33,7 +33,7 @@
 <package
   id="loadplanner"
   name="LoadPlanner"
-  revision="%version%-12"
+  revision="%version%-1"
   reboot="false"
   priority="10">
 
@@ -42,13 +42,10 @@
   <variable name="fileversion2" value="4.01.0009" />
   <variable name="updatefile" value="LoadPlanner 4109 update.msi" />
 
-  <variable name="PKG_SOURCE" value="%SOFTWARE%\LoadPlanner" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\LoadPlanner"      architecture="x86" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\LoadPlanner" architecture="x64" />
   <variable name="DESKTOP" value="%ALLUSERSPROFILE%\Desktop" os="windows xp" />
   <variable name="DESKTOP" value="%PUBLIC%\Desktop"          os="windows 7" />
-  <variable name="TARGET" value="%SYSTEMDRIVE%"              os="windows xp" />
-  <variable name="TARGET" value="%PROGRAMDATA%\LoadPlanner"  os="windows 7" />
 
   <check type="logical" condition="or">
     <check type="uninstall" condition="exists" path="LoadPlanner %version% Update" />
@@ -56,40 +53,22 @@
     <check type="file" condition="versiongreaterorequal" path="%PKG_DESTINATION%\LpMultiP.exe" value="%fileversion2%" />
   </check>
 
-  <commands>
-    <command type='copy' cmd='%COMSPEC% /C mkdir "%TARGET%" >NUL'><exit code="any" /></command>
-    <command type='copy' cmd='%COMSPEC% /C copy /Y "%PKG_SOURCE%\*.msi" "%TARGET%" >NUL'><exit code="any" /></command>
-    <command type='perms' cmd='%COMSPEC% /c echo Y | cacls "%PKG_DESTINATION%" /E /T /G Everyone:f >NUL'><exit code="8023" /></command>
-  </commands>
-
-  <install include='copy' />
-  <install include='remove' />
-  <install cmd='msiexec %MSI% /i "%PKG_SOURCE%\LoadPlanner.msi" >NUL' timeout='300' />
-  <install cmd='msiexec %MSI% /i "%PKG_SOURCE%\%updatefile%" >NUL' timeout='300' />
-  <install cmd='%COMSPEC% /c assoc .pjc=LoadPlanner >NUL' />
-  <install cmd='%COMSPEC% /c ftype LoadPlanner="%PKG_DESTINATION%\LpMultiP.exe" "%1" >NUL' />
-  <install cmd='%COMSPEC% /c copy /Y "%SOFTWARE%\LoadPlanner\ini.mdb" "%PKG_DESTINATION%" >NUL' />
-  <install cmd='%COMSPEC% /c IF NOT EXIST "%PKG_DESTINATION%\data5.mdb" XCOPY "%SOFTWARE%\LoadPlanner\data5.mdb" "%PKG_DESTINATION%" /Y >NUL' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\LoadPlanner.msi"' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\%updatefile%"' />
+  <install cmd='%COMSPEC% /c assoc .pjc=LoadPlanner' />
+  <install cmd='%COMSPEC% /c ftype LoadPlanner="%PKG_DESTINATION%\LpMultiP.exe" "%1"' />
+  <install cmd='%COMSPEC% /c copy /Y "%SOFTWARE%\LoadPlanner\ini.mdb" "%PKG_DESTINATION%"' />
+  <install cmd='%COMSPEC% /c IF NOT EXIST "%PKG_DESTINATION%\data5.mdb" XCOPY "%SOFTWARE%\LoadPlanner\*.mdb" "%PKG_DESTINATION%" /Y' />
+  <install cmd='%COMSPEC% /c echo Y | cacls "%PKG_DESTINATION%" /E /T /G Everyone:f >NUL'><exit code="8023" /></install>
   <install cmd='%COMSPEC% /C move "%USERPROFILE%\Desktop\LoadPlanner.lnk" "%DESKTOP%"'><exit code="any" /></install>
-  <install include='perms' />
 
-  <upgrade include='copy' />
-  <upgrade cmd='msiexec %MSI% /x "%PKG_SOURCE%\%updatefile%"' timeout='300'>
-    <exit code='1605' />
-  </upgrade>
-  <upgrade cmd='msiexec %MSI% /i "%PKG_SOURCE%\%updatefile%"' timeout='300' />
-  <upgrade include='perms' />
+  <upgrade   include="install" />
+  <downgrade include="install" />
 
-  <downgrade include='upgrade' />
-
-  <remove cmd='msiexec %MSI% /x "%PKG_SOURCE%\%updatefile%" >NUL' timeout='300'>
-    <exit code='1605' />
-    <exit code='3010' />
-  </remove>
-  <remove cmd='msiexec %MSI% /x "%PKG_SOURCE%\LoadPlanner.msi" >NUL' timeout='300'>
-    <exit code='1605' />
-    <exit code='3010' />
-  </remove>
+  <!--
+  <remove  cmd='msiexec %MSI% /x "%SOFTWARE%\LoadPlanner\%updatefile%"' />
+  -->
+  <remove  cmd='msiexec %MSI% /x "%SOFTWARE%\LoadPlanner\LoadPlanner.msi"' />
 
 </package>
 
