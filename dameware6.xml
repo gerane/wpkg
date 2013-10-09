@@ -2,6 +2,7 @@
   <!ENTITY id "dameware6">
   <!ENTITY name "DameWare Remote Control">
   <!ENTITY version "6.8.1.4">
+  <!ENTITY cmdline "">
   <!ENTITY msi_32bit "DameWare\x86\DWMRC6x.msi">
   <!ENTITY msi_64bit "DameWare\amd64\DWMRC6x.msi">
   <!ENTITY uninstall_32bit "DameWare Mini Remote Control">

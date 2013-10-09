@@ -2,6 +2,7 @@
   <!ENTITY id "nitropdfpro6">
   <!ENTITY name "Nitro PDF OCR">
   <!ENTITY version "6.1.4.1">
+  <!ENTITY cmdline "">
   <!ENTITY msi_32bit "NitroPDF\&version;\nitro_x86.msi">
   <!ENTITY msi_64bit "NitroPDF\&version;\nitro_x64.msi">
   <!ENTITY uninstall_32bit "Nitro PDF Professional">

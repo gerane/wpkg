@@ -2,6 +2,7 @@
   <!ENTITY id "meadco_scriptx">
   <!ENTITY name "MeadCo ScriptX">
   <!ENTITY version "7.1.0">
+  <!ENTITY cmdline "">
   <!ENTITY msi_32bit "MeadCo\&version;\ScriptX.msi">
   <!ENTITY msi_64bit "MeadCo\&version;\ScriptX.msi">
   <!ENTITY uninstall_32bit "&name; .*">
