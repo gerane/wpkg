@@ -12,7 +12,7 @@ NOTES
 <package
   id="itunes"
   name="Apple iTunes"
-  revision="%version%-1"
+  revision="%version%-0"
   reboot="false"
   priority="10">
 
@@ -23,7 +23,7 @@ NOTES
   <depends package-id="quicktime" />
   -->
 
-  <variable name="version" value="11.1.0.126" />
+  <variable name="version" value="11.1.1.11" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\iTunes\%version%\iTunes.msi"   architecture="x86" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\iTunes\%version%\iTunes64.msi" architecture="x64" />
 
