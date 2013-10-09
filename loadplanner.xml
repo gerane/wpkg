@@ -33,7 +33,7 @@
 <package
   id="loadplanner"
   name="LoadPlanner"
-  revision="%version%-1"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
@@ -42,6 +42,8 @@
   <variable name="fileversion2" value="4.01.0009" />
   <variable name="updatefile" value="LoadPlanner 4109 update.msi" />
 
+  <variable name="PKG_SOURCE"      value="%SOFTWARE%\LoadPlanner" />
+  <variable name="PKG_CACHE"       value="%PROGRAMDATA%\LoadPlanner" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\LoadPlanner"      architecture="x86" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\LoadPlanner" architecture="x64" />
   <variable name="DESKTOP" value="%ALLUSERSPROFILE%\Desktop" os="windows xp" />
@@ -53,8 +55,8 @@
     <check type="file" condition="versiongreaterorequal" path="%PKG_DESTINATION%\LpMultiP.exe" value="%fileversion2%" />
   </check>
 
-  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\LoadPlanner.msi"' />
-  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\%updatefile%"' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\LoadPlanner.msi" /lv* "%TEMP%\wpkg-loadplanner.log"' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\%updatefile%" /lv* "%TEMP%\wpkg-loadplanner-%version%.log"' />
   <install cmd='%COMSPEC% /c assoc .pjc=LoadPlanner' />
   <install cmd='%COMSPEC% /c ftype LoadPlanner="%PKG_DESTINATION%\LpMultiP.exe" "%1"' />
   <install cmd='%COMSPEC% /c copy /Y "%SOFTWARE%\LoadPlanner\ini.mdb" "%PKG_DESTINATION%"' />
