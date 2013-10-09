@@ -1,28 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<packages>
+<!DOCTYPE msi [
+  <!ENTITY id "meadco_scriptx">
+  <!ENTITY name "MeadCo ScriptX">
+  <!ENTITY version "7.1.0">
+  <!ENTITY msi_32bit "MeadCo\&version;\ScriptX.msi">
+  <!ENTITY msi_64bit "MeadCo\&version;\ScriptX.msi">
+  <!ENTITY uninstall_32bit "&name; .*">
+  <!ENTITY uninstall_64bit "&name; .*">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
 
 <!--
   OBTAINING THE MSI
   1) Download and install the client resource kit
 -->
 
-<package
-  id="meadco_scriptx"
-  name="MeadCo ScriptX"
-  revision="%version%-2"
-  priority="10"
-  reboot="false">
-
-  <variable name="version" value="7.1.0" />
-
-  <check type="uninstall" condition="versiongreaterorequal" path="MeadCo ScriptX .*" value="%version%" />
-
-  <install cmd='msiexec /i "%SOFTWARE%\MeadCo\%version%\ScriptX.msi" %MSI%' />
-
-  <upgrade   include='install' />
-  <downgrade include='install' />
-
-</package>
-
-</packages>
+<packages>&pkg;</packages>
