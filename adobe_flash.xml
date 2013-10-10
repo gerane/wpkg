@@ -12,7 +12,7 @@
 <package
   id="flash"
   name="Adobe Flash Player"
-  revision="%version%-0"
+  revision="%version%-1"
   reboot="false"
   priority="10">
 
@@ -34,6 +34,7 @@
   <install cmd='msiexec %MSI% /i "%SOFTWARE%\Adobe\Flash\%shortversion%\install_flash_player_11_active_x.msi"' />
   <install cmd='msiexec %MSI% /i "%SOFTWARE%\Adobe\Flash\%shortversion%\install_flash_player_11_plugin.msi"' />
   <install cmd='sc config AdobeFlashPlayerUpdateSvc start= disabled' />
+  <install cmd='schtasks /delete /tn "Adobe Flash Player Updater" /f'><exit code='any' /></install>
 
   <upgrade   include='install' />
   <downgrade include='install' />
