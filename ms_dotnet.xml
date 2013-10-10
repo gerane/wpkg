@@ -58,22 +58,22 @@
 
 <package
   id="dotnet4"
-  name="Microsoft .NET 4"
-  revision="6"
+  name="Microsoft .NET 4.5"
+  revision="7"
   reboot="false"
   priority="50">
 
   <depends package-id="7zip" />
 
-  <variable name="PKG_SOURCE"   value="%SOFTWARE%\Microsoft\DotNet\dotNetFx40_Full_x86_x64.exe" />
-  <variable name="PKG_TARGET"   value="%TEMP%\dotnet4" />
+  <variable name="PKG_SOURCE"   value="%SOFTWARE%\Microsoft\DotNet\dotNetFx45_Full_x86_x64.exe" />
+  <variable name="PKG_TARGET"   value="%TEMP%\dotnet45" />
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Core_x86.msi"     architecture="x86" />
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Core_x64.msi"     architecture="x64" />
   <variable name="PKG_SOURCE_2" value="%PKG_TARGET%\netfx_Extended_x86.msi" architecture="x86" />
   <variable name="PKG_SOURCE_2" value="%PKG_TARGET%\netfx_Extended_x64.msi" architecture="x64" />
 
-  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4 Client Profile" />
-  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4 Extended" />
+  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5 Client Profile" />
+  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5 Extended" />
 
   <install cmd='%COMSPEC% /c IF NOT EXIST "%PKG_TARGET%" mkdir "%PKG_TARGET%"' />
   <install cmd='%COMSPEC% /C "start "Unpacking" /wait "%PKG_SOURCE%" /q /x:"%PKG_TARGET%""' />
