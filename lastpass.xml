@@ -11,16 +11,16 @@
 <package
   id="lastpass"
   name="LastPass browser plugins, IE, Firefox, Chrome"
-  revision="%version%-0"
+  revision="%version%-1"
   priority="10"
   reboot="false">
 
   <variable name="version" value="2.5.0" />
   <check type="file" condition="versiongreaterorequal" path="%PROGRAMFILES%\LastPass\lastpass.exe" value="%version%" />
-  <install   cmd='"%SOFTWARE%\LastPass\%version%\%PROCESSOR_ARCHITECTURE%\lastpass.exe" -i -f -ia --installdir="%PROGRAMFILES%\LastPass"' />
+  <install   cmd='"%SOFTWARE%\LastPass\%version%\lastpass.exe" -i -f -ia --installdir="%PROGRAMFILES%\LastPass"' />
   <upgrade   include="install" />
   <downgrade include="install" />
-  <remove    cmd='"%SOFTWARE%\LastPass\%version%\%PROCESSOR_ARCHITECTURE%\lastpass.exe" -sb' />
+  <remove    cmd='"%SOFTWARE%\LastPass\%version%\lastpass.exe" -sb' />
 
 </package>
 
