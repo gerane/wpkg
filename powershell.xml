@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<packages>
+
+<package
+  id='powershell_remoting'
+  name='Enable PowerShell Remoting'
+  revision='%version%-0'  priority='1'
+  reboot='false'
+  execute='once'>
+
+  <variable name='version' value='1.0.0' />
+
+  <install cmd='powershell.exe -Command {Enable-PsRemoting -Force}' />
+
+</package>
+
+</packages>
