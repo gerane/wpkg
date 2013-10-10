@@ -130,7 +130,7 @@ NOTES
 <package
   id="quicktime"
   name="Apple Quicktime"
-  revision="%version%-1"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
@@ -149,7 +149,9 @@ NOTES
   <upgrade   include="install" />
   <downgrade include="install" />
 
-  <remove  cmd='msiexec %MSI% /x "%SOFTWARE%\Apple\QuickTime\%version%\QuickTime.msi"' />
+  <remove  cmd='msiexec %MSI% /x "%SOFTWARE%\Apple\QuickTime\%version%\QuickTime.msi"'>
+    <exit code='1605' />
+  </remove>
 </package>
 
 <package
