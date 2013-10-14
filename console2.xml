@@ -26,4 +26,28 @@
 
 </package>
 
+<package
+  id="consoleZ"
+  name="ConsoleZ"
+  revision="%version%-0"
+  reboot="false"
+  priority="0">
+
+  <depends package-id="7zip" />
+
+  <variable name="fileversion" value="1.08.0" />
+  <variable name="version" value="%fileversion%.13271" />
+  <variable name="PKG_SOURCE" value="%SOFTWARE%\ConsoleZ\ConsoleZ.x86.%fileversion%.zip" architecture="x86" />
+  <variable name="PKG_SOURCE" value="%SOFTWARE%\ConsoleZ\ConsoleZ.x64.%fileversion%.zip" architecture="x86" />
+  <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\ConsoleZ" /> <!-- do NOT set this to just %PROGRAMFILES% due to <remove> -->
+
+  <check type="file" condition="versiongreaterorequal" path="%PKG_DESTINATION%\console.exe" value="%version%" />
+
+  <install   cmd='%COMSPEC% /C "start "Unpacking" /wait "%PROGRAMFILES%\7-Zip\7z.exe" e -y -o"%PKG_DESTINATION%\" "%PKG_SOURCE%" >%TEMP%\wpkg_unpack_consoleZ.log"' />
+  <upgrade   include='install' />
+  <downgrade include='install' />
+  <remove    cmd='%COMSPEC% /C RD /Q /S "%PKG_DESTINATION%"' />
+
+</package>
+
 </packages>
