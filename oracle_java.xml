@@ -87,7 +87,7 @@
   priority="10">
 
   <!-- if we go beyond 60 (or 80 or 100) we need to break up the commands that uninstalls old versions -->
-  <variable name="last" value="40" />        <!-- last part of the version - used for looping through installed versions -->
+  <variable name="last" value="45" />        <!-- last part of the version - used for looping through installed versions -->
   <variable name="short" value="7u%last%" /> <!-- part of the installer file name -->
   <variable name="version" value="1.7.0_%last%" />
   <variable name='flags' value='ADDLOCAL=ALL IEXPLORER=1 MOZILLA=1 REBOOT=Suppress' />
@@ -98,10 +98,12 @@
   <check type="file" condition="exists" path="%PKG_DESTINATION%\bin\javacpl.exe" />
 
   <install include="kill" />
-  <install cmd='%COMSPEC% /C FOR /L %I IN (0,1,20) DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F832170%IFF} >NUL 2>&amp;1'><exit code='1605' /></install>
-  <install cmd='%COMSPEC% /C FOR /L %I IN (0,1,20) DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F864170%IFF} >NUL 2>&amp;1' architecture="x64"><exit code='1605' /></install>
-  <install cmd='%COMSPEC% /C FOR /L %I IN (21,1,%last%) DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F832170%IFF} >NUL 2>&amp;1'><exit code='1605' /></install>
-  <install cmd='%COMSPEC% /C FOR /L %I IN (21,1,%last%) DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F864170%IFF} >NUL 2>&amp;1' architecture="x64"><exit code='1605' /></install>
+  <install cmd='%COMSPEC% /C FOR /L %I IN (0,1,20)      DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F832170%IFF} >NUL 2>&amp;1'><exit code='1605' /></install>
+  <install cmd='%COMSPEC% /C FOR /L %I IN (0,1,20)      DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F864170%IFF} >NUL 2>&amp;1' architecture="x64"><exit code='1605' /></install>
+  <install cmd='%COMSPEC% /C FOR /L %I IN (21,1,40)     DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F832170%IFF} >NUL 2>&amp;1'><exit code='1605' /></install>
+  <install cmd='%COMSPEC% /C FOR /L %I IN (21,1,40)     DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F864170%IFF} >NUL 2>&amp;1' architecture="x64"><exit code='1605' /></install>
+  <install cmd='%COMSPEC% /C FOR /L %I IN (41,1,%last%) DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F832170%IFF} >NUL 2>&amp;1'><exit code='1605' /></install>
+  <install cmd='%COMSPEC% /C FOR /L %I IN (41,1,%last%) DO msiexec %MSI% /x {26A24AE4-039D-4CA4-87B4-2F864170%IFF} >NUL 2>&amp;1' architecture="x64"><exit code='1605' /></install>
   <install cmd='msiexec %MSI% /i "%SOFTWARE%\Java\x86\jre%version%.msi" %flags% '><exit code="3010" /></install>
   <install cmd='"%SOFTWARE%\Java\amd64\jre-%short%-windows-x64.exe" /s %flags%' architecture="x64"><exit code="3010" /></install>
   <install cmd='REG ADD "HKLM\SOFTWARE\JavaSoft\Java Update\Policy" /v EnableAutoUpdateCheck /t REG_DWORD /d 0 /f' />
@@ -129,6 +131,7 @@
     <command type='kill' cmd='"%PROGRAMFILES(x86)%\Java\jre7\bin\jqs.exe" -unregister' architecture="x64"><exit code='any' /></command>
     <command type='kill' cmd='net stop JavaQuickStarterService'><exit code="any" /></command>
     <command type='kill' cmd='REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "SunJavaUpdateSched" /f'><exit code="1" /></command>
+    <command type='kill' cmd='REG DELETE "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run" /v "SunJavaUpdateSched" /f'><exit code="1" /></command>
   </commands>
 
 </package>
