@@ -5,14 +5,14 @@
 <package
   id="emet"
   name="Enhanced Mitigation Experience Toolkit"
-  revision="%version%-1"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
   <variable name="version" value="4.0" />
   <variable name="PKG_SOURCE_DIR"  value="%SOFTWARE%\Microsoft\EMET" />
-  <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\EMET"      architecture="x86" />
-  <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\EMET" architecture="x64" />
+  <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\EMET %version%"      architecture="x86" />
+  <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\EMET %version%" architecture="x64" />
 
   <check type='logical' condition='or'>
     <check type="uninstall" condition="versiongreaterorequal" path="EMET" value="%version%" />
@@ -21,7 +21,7 @@
 
   <install cmd='msiexec /x "%PKG_SOURCE_DIR%\3.0.0\EMET Setup.msi" %MSI%'><exit code='1605' /></install>
   <install cmd='msiexec /i "%PKG_SOURCE_DIR%\%version%\EMET Setup.msi" %MSI%' />
-  <install cmd='"%PKG_DESTINATION%\EMET_Conf.exe" --import "%PKG_DESTINATION%\Deployment\Protection Profiles\All.xml"' />
+  <install cmd='"%PKG_DESTINATION%\EMET_Conf.exe" --import "%PKG_DESTINATION%\Deployment\Protection Profiles\Popular Software.xml"' />
 
   <upgrade include="install" />
   <downgrade include="install" />
