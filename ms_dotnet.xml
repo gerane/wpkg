@@ -54,27 +54,33 @@
   http://serverfault.com/questions/140698/deploy-net-4-via-active-directory-group-policy-or-wsus/157356#157356
   NOTES
     1) this piece of crap keeps hanging on XP so now we unpack the full installer and run the MSIs directly
+    2) As of 4.5 we just run it directly
 -->
 
 <package
   id="dotnet4"
   name="Microsoft .NET 4.5"
-  revision="7"
+  revision="8"
   reboot="false"
   priority="50">
 
   <depends package-id="7zip" />
 
   <variable name="PKG_SOURCE"   value="%SOFTWARE%\Microsoft\DotNet\dotNetFx45_Full_x86_x64.exe" />
+  <!--
   <variable name="PKG_TARGET"   value="%TEMP%\dotnet45" />
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Core_x86.msi"     architecture="x86" />
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Core_x64.msi"     architecture="x64" />
   <variable name="PKG_SOURCE_2" value="%PKG_TARGET%\netfx_Extended_x86.msi" architecture="x86" />
   <variable name="PKG_SOURCE_2" value="%PKG_TARGET%\netfx_Extended_x64.msi" architecture="x64" />
+  -->
 
-  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5 Client Profile" />
-  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5 Extended" />
+  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5" />
 
+  <install cmd='"%PKG_SOURCE%" /q /norestart'>
+    <exit code='3010' reboot='false' timeout='900' />
+  </install>
+  <!--
   <install cmd='%COMSPEC% /c IF NOT EXIST "%PKG_TARGET%" mkdir "%PKG_TARGET%"' />
   <install cmd='%COMSPEC% /C "start "Unpacking" /wait "%PKG_SOURCE%" /q /x:"%PKG_TARGET%""' />
   <install cmd='msiexec %MSI% /i "%PKG_SOURCE_1%" /quiet /norestart EXTUI=1' timeout="900">
@@ -85,9 +91,12 @@
     <exit code="1614" reboot="false" />
     <exit code="3010" reboot="false" />
   </install>
+  -->
 
-  <remove cmd='"%windir%\Microsoft.NET\Framework64\v4.0.30319\SetupCache\Extended\setup.exe" /uninstall /x86 /x64 /ia64 /parameterfolder Extended /q' />
-  <remove cmd='"%windir%\Microsoft.NET\Framework64\v4.0.30319\SetupCache\Client\setup.exe" /uninstall /x86 /x64 /parameterfolder Client' />
+  <upgrade   include='install' />
+  <downgrade include='install' />
+
+  <remove cmd='"%windir%\Microsoft.NET\Framework64\v4.0.30319\SetupCache\setup.exe" /uninstall /x86 /x64 /ia64 /q' />
 
 </package>
 
