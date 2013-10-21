@@ -22,7 +22,7 @@
 <package
   id="livemessenger"
   name="Windows Live Messenger"
-  revision="%version%-18"
+  revision="%version%-19"
   reboot="false"
   priority="10">
 
@@ -50,7 +50,7 @@
   <upgrade   cmd='%COMSPEC% /c EXIT' />
   <downgrade cmd='%COMSPEC% /c EXIT' />
 
-  <remove  cmd='"%PKG_DESTINATION%"\Installer\wlarp.exe" /uninstall:all /q' timeout='600'><exit code='any' /></remove>
+  <remove  cmd='"%PKG_DESTINATION%\Installer\wlarp.exe" /uninstall:all /q' timeout='600'><exit code='any' /></remove>
 
 </package>
 
