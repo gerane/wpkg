@@ -1,0 +1,12 @@
+<!DOCTYPE msi [
+  <!ENTITY id "solidworks2013">
+  <!ENTITY name "SolidWorks 2013 OEM">
+  <!ENTITY version "4.1.2694">
+  <!ENTITY cmdline "TRANSFORMS='custom.mst'">
+  <!ENTITY msi_32bit "NEiFusion\Kernel\swwi\Data\solidworks.msi">
+  <!ENTITY msi_64bit "NEiFusion\Kernel\swwi\Data\solidworks.msi">
+  <!ENTITY uninstall_32bit "SolidWorks">
+  <!ENTITY uninstall_64bit "SolidWorks">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
+<packages>&pkg;</packages>
