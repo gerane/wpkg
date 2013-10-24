@@ -11,14 +11,15 @@
 <package
   id="lastpass"
   name="LastPass browser plugins, IE, Firefox, Chrome"
-  revision="%version%-2"
+  revision="%version%-3"
   priority="10"
   reboot="false">
 
-  <variable name="version" value="2.5.0" />
+  <variable name="version"     value="2.5.0" />
+  <variable name="fileversion" value="2.0.32.0" /> <!-- why are the versions different? no idea -->
   <variable name='PARAMS' value='--silinstall --elevate --userinstallie --userinstallff --installforallusers' />
 
-  <check type="file" condition="versiongreaterorequal" path="%PROGRAMFILES%\LastPass\lastpass.exe" value="%version%" />
+  <check type="file" condition="versiongreaterorequal" path="%PROGRAMFILES%\LastPass\lastpass.exe" value="%fileversion%" />
 
   <install   cmd='"%SOFTWARE%\LastPass\%version%\lastpass.exe" %PARAMS% --installdir="%PROGRAMFILES%\LastPass"' timeout='180' />
   <upgrade   include="install" />
