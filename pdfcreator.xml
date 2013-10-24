@@ -42,12 +42,12 @@
 <package
   id="pdfcreator-099"
   name="PDFCreator 0.9.9"
-  revision="0993"
+  revision="0994"
   reboot="false"
   priority="10">
 
   <check type="logical" condition="or">
-    <check type="file" condition="versiongreaterorequal" path="%PROGRAMFILES%\PDFCreator\PDFCreator.exe" value="0.9.0.9" />
+    <check type="file" condition="versiongreaterorequal" path="%PROGRAMFILES%\PDFCreator\PDFCreator.exe"      value="0.9.0.9" />
     <check type="file" condition="versiongreaterorequal" path="%PROGRAMFILES(x86)%\PDFCreator\PDFCreator.exe" value="0.9.0.9" />
   </check>
 
@@ -55,11 +55,12 @@
   <install cmd='"%SOFTWARE%\PDFCreator\PDFCreator-0_9_9_setup.exe" /VERYSILENT /sp- /components="program,ghostscript,languages,languages\english" /tasks="!desktop_icon" /f' timeout='180' />
   <install cmd='REG ADD "HKLM\SOFTWARE\PDFCreator\Program" /v "UpdateInterval" /t REG_SZ /d "0" /f' />
 
-  <upgrade   include='install' />
-  <downgrade include='install' />
-
-  <remove  cmd='"%PROGRAMFILES%\PDFCreator\unins000.exe" /VERYSILENT'      architecture='x86' timeout='180' />
-  <remove  cmd='"%PROGRAMFILES(x86)%\PDFCreator\unins000.exe" /VERYSILENT' architecture='x64' timeout='180' />
+  <remove  cmd='"%PROGRAMFILES%\PDFCreator\unins000.exe" /VERYSILENT'      architecture='x86' timeout='180'>
+    <exit code='-1' />
+  </remove>
+  <remove  cmd='"%PROGRAMFILES(x86)%\PDFCreator\unins000.exe" /VERYSILENT' architecture='x64' timeout='180'>
+    <exit code='-1' />
+  </remove>
 
 </package>
 
