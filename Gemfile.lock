@@ -1,8 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    awesome_print (1.1.0)
-    rake (10.0.3)
+    awesome_print (1.2.0)
+    rake (10.1.0)
     xml-simple (1.1.2)
 
 PLATFORMS
