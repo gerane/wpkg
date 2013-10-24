@@ -4,7 +4,6 @@
 
   <!--
   1) This package depends on DirectX which we currently cannot install automatically
-  2) After downloading the .exe packages use 7zip (or just run the exe) to extract the files into x86 and amd64 folders
 
   Direct download links:
   http://download.autodesk.com/esd/dwgtrueview/2013/SetupDWGTrueView2013_32bit.exe
@@ -23,16 +22,16 @@
   priority="10">
 
   <depends package-id="7zip" />
-  <depends package-id="dotnet4" /> <!-- Requires .NET 4 -->
-  <depends package-id="msxml" /> <!-- MSXML 6 is bundled -->
+  <depends package-id="dotnet4" />   <!-- Requires .NET 4 -->
+  <depends package-id="msxml" />     <!-- MSXML 6 is bundled -->
   <depends package-id="vcruntime" /> <!-- VCruntime 2008 is bundled -->
 
-  <variable name="version" value="2013" />
+  <variable name="version"    value="2013" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Autodesk\SetupDWGTrueView%version%_32bit.exe" architecture="x86" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Autodesk\SetupDWGTrueView%version%_64bit.exe" architecture="x64" />
-  <variable name="TEMP_DIR" value="%TEMP%\dwgtrueview%version%" />
-  <variable name="DESKTOP" value="%ALLUSERSPROFILE%\Desktop" os="windows xp" />
-  <variable name="DESKTOP" value="%PUBLIC%\Desktop"          os="windows 7" />
+  <variable name="TEMP_DIR"   value="%TEMP%\dwgtrueview%version%" />
+  <variable name="DESKTOP"    value="%ALLUSERSPROFILE%\Desktop" os="windows xp" />
+  <variable name="DESKTOP"    value="%PUBLIC%\Desktop"          os="windows 7" />
 
   <check type="uninstall" condition="exists" path="DWG TrueView %version%" />
 
@@ -62,10 +61,10 @@
   <depends package-id="vcruntime" />
   <depends package-id="autodesk_dwgtrueview" />
 
-  <variable name="version" value="2013" />
+  <variable name="version"    value="2013" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Autodesk\DesignReview\%version%\SetupDesignReview%version%.msi" />
-  <variable name="DESKTOP" value="%ALLUSERSPROFILE%\Desktop" os="windows xp" />
-  <variable name="DESKTOP" value="%PUBLIC%\Desktop"          os="windows 7" />
+  <variable name="DESKTOP"    value="%ALLUSERSPROFILE%\Desktop" os="windows xp" />
+  <variable name="DESKTOP"    value="%PUBLIC%\Desktop"          os="windows 7" />
 
   <check type="uninstall" condition="exists" path="Autodesk Design Review %version%" />
 
