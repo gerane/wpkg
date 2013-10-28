@@ -113,7 +113,7 @@ NOTES
   <depends package-id="applesupport" />
   <depends package-id="bonjour" />
 
-  <variable name="version" value="2.1.2.8" />
+  <variable name="version" value='3.0.2.163' />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\iCloud\%version%\iCloud.msi"   architecture="x86" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Apple\iCloud\%version%\iCloud64.msi" architecture="x64" />
 
