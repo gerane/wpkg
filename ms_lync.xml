@@ -1,0 +1,12 @@
+<!DOCTYPE msi [
+  <!ENTITY id "lync">
+  <!ENTITY name "Lync">
+  <!ENTITY version "4.0.0.0">
+  <!ENTITY cmdline "">
+  <!ENTITY msi_32bit "Microsoft\Lync\4.0\Lync.msi">
+  <!ENTITY msi_64bit "Microsoft\Lync\4.0\Lync.msi">
+  <!ENTITY uninstall_32bit "Microsoft Lync 2010">
+  <!ENTITY uninstall_64bit "Microsoft Lync 2010">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
+<packages>&pkg;</packages>
