@@ -37,13 +37,13 @@
 
 <package
   id="google_picasa"
-  name="Picasa 3.8"
+  name="Picasa %version%"
   revision="%version%-1"
   priority="10"
   reboot="false" >
 
-  <variable name="version" value="3.8" />
-  <variable name="fileversion" value="38" />
+  <variable name="version" value="3.9" />
+  <variable name="fileversion" value="39" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\Google\Picasa3"      architecture="x86" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\Google\Picasa3" architecture="x64" />
 
