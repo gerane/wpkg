@@ -37,7 +37,7 @@
 
 <package
   id="google_picasa"
-  name="Picasa %version%"
+  name="Picasa"
   revision="%version%-1"
   priority="10"
   reboot="false" >
