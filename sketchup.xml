@@ -1,0 +1,12 @@
+<!DOCTYPE msi [
+  <!ENTITY id "sketchup">
+  <!ENTITY name "SketchUp Viewer">
+  <!ENTITY version "13.0.4812">
+  <!ENTITY cmdline "">
+  <!ENTITY msi_32bit "Sketchup\SketchUpViewerWEN.msi">
+  <!ENTITY msi_64bit "Sketchup\SketchUpViewerWEN.msi">
+  <!ENTITY uninstall_32bit "SketchUp Viewer">
+  <!ENTITY uninstall_64bit "SketchUp Viewer">
+  <!ENTITY pkg SYSTEM "../templates/msi.xml">
+]>
+<packages>&pkg;</packages>
