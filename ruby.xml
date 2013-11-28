@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<packages
+<packages:packages
+  xmlns:packages="http://www.wpkg.org/packages"
+  xmlns:wpkg="http://www.wpkg.org/wpkg"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="../xsd/packages.xsd">
+  xsi:schemaLocation="http://www.wpkg.org/packages xsd/packages.xsd">
 
 <!--
   NOTES
-  1) We install to %SYSTEMDRIVE%\Ruby and set path and file associations - no transforms for Inno Setup, so we have to pick defaults
+
+  1) We install to %SYSTEMDRIVE%\Ruby and set path and file
+  associations - no transforms for Inno Setup, so we have to pick
+  defaults
 -->
 
 <package
@@ -37,8 +42,8 @@
 
   <depends package-id="java" />
 
-  <variable name="version" value="1.6.7" />
-  <variable name="fileversion" value="1_6_7" />
+  <variable name="version" value="1.7.8" />
+  <variable name="fileversion" value="1_7_8" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Ruby\jruby_windows_%fileversion%.exe"     architecture="x86" />
   <variable name="PKG_SOURCE" value="%SOFTWARE%\Ruby\jruby_windows_x64_%fileversion%.exe" architecture="x64" />
 
@@ -51,4 +56,4 @@
 
 </package>
 
-</packages>
+</packages:packages>
