@@ -11,7 +11,7 @@
 <package
   id="spark"
   name="Spark IM"
-  revision="%version%-1"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
@@ -28,11 +28,7 @@
   <install cmd='"%PKG_SOURCE%" -q' />
   <install include='cleanup' />
   <!-- Spark must run once as admin before it works -->
-  <!--
-  <install cmd='%COMSPEC% /c start "%PKG_DESTINATION%\Spark.exe"' />
-  <install cmd="ping -n31 localhost >NUL"><exit code="any" /></install>
-  <install include='kill' />
-  -->
+  <install cmd='"%PKG_DESTINATION%\spark.exe"' timeout='60'><exit code='any' /></install>
 
   <upgrade   include='install' />
   <downgrade include='install' />
