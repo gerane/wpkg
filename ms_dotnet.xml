@@ -99,7 +99,7 @@
 <package
   id="dotnet4"
   name="Microsoft .NET 4.5"
-  revision="13"
+  revision="14"
   reboot="false"
   priority="50">
 
@@ -109,7 +109,7 @@
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Full_x86.msi"     architecture="x86" />
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Full_x64.msi"     architecture="x64" />
 
-  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5" />
+  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5.*" />
 
   <install cmd='"%PKG_TARGET%\SetupUtility" /aupause'><exit code='any' /></install>
   <install cmd='%COMSPEC% /c IF NOT EXIST "%PKG_TARGET%" mkdir "%PKG_TARGET%"' />
