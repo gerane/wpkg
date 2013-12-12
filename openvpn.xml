@@ -4,6 +4,8 @@
   NOTES
   1) Make sure to extract the certificate. Guide here: http://wpkg.org/OpenVPN
      And then get it from tap-windows.exe in the archive.
+  2) We will eventually have support for running as standard user, but the scripts are not ready yet
+  3) When we use timeout to kill a process it will return -1 hence the <exit>
 -->
 
 <packages>
@@ -11,7 +13,7 @@
 <package
   id="openvpn"
   name="OpenVPN Client"
-  revision="%version%-4"
+  revision="%version%-5"
   reboot="false"
   priority="1"> <!-- run it late to enable updates via VPN -->
 
@@ -21,22 +23,26 @@
   <variable name="PKG_SOURCE"      value="%PKG_SOURCE_DIR%\openvpn-install-%version%-i686.exe"   architecture="x86" />
   <variable name="PKG_SOURCE"      value="%PKG_SOURCE_DIR%\openvpn-install-%version%-x86_64.exe" architecture="x64" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\OpenVPN" />
+  <variable name="CACHE_DIR"       value="%PROGRAMDATA\OpenVPN" />
   <variable name="CERTIFICATE"     value="%PKG_SOURCE_DIR%\OpenVPN_Certificate.cer" />
 
   <check type="uninstall" condition="exists" path="OpenVPN %version%.*" /> <!-- 2.3.1 has a space after the version -->
 
   <install include='kill' />
+  <install cmd='%COMSPEC% /c mkdir "%CACHE_DIR%"'><exit code='any' /></install>
   <install cmd='%COMSPEC% /C certutil -addstore "TrustedPublisher" "%CERTIFICATE%" >NUL' timeout='180' />
   <install cmd='"%PKG_SOURCE%" /S >NUL' timeout='300'><exit code="3010" /></install>
-  <install cmd='%COMSPEC% /c xcopy /Y "%PKG_SOURCE%" c:\ >NUL'><exit code="any" /></install>
+  <install cmd='%COMSPEC% /c xcopy /Y "%PKG_SOURCE%" "%CACHE_DIR%" >NUL'><exit code="any" /></install>
+  <!-- we need to run once as admin to create the registry entries -->
   <install cmd='%PKG_DESTINATION%\bin\openvpn-gui.exe' timeout='10'><exit code='any' /></install>
-  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_dir /d "%TEMP%\OpenVPN\log" /f' />
-  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v editor /d "%WINDIR%\system32\ipconfig.exe" /f' />
-  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_viewer /d "%WINDIR%\system32\ipconfig.exe" /f' />
-  <install cmd='%COMSPEC% /c mkdir C:\ProgramData\OpenVPN'><exit code='any' /></install>
-  <install cmd='%COMSPEC% /c copy "%PKG_SOURCE_DIR%\*.cmd" "C:\ProgramData\OpenVPN" >NUL' />
+  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_dir /d "\%TEMP\%\OpenVPN\log" /f' />
+  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v editor /d "%\WINDIR\%\system32\ipconfig.exe" /f' />
+  <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_viewer /d "\%WINDIR\%\system32\ipconfig.exe" /f' />
+  <install cmd='%COMSPEC% /c copy "%PKG_SOURCE_DIR%\*.cmd" "%CACHE_DIR%" >NUL' timeout='30' />
+  <!--
   <install cmd='C:\ProgramData\OpenVPN\create_main_task_only_runonce.cmd' />
   <install cmd='%WPKG%\tools\nircmdc.exe shortcut "%windir%\system32\schtasks.exe" "%ALLUSERSPROFILE%\Desktop" "OpenVPN" "/RUN /TN \"\%USERDOMAIN\%_\%USERNAME\%_openvpn" "%PKG_DESTINATION%\icon.ico"' />
+  -->
 
   <upgrade   include='install' />
   <downgrade include='install' />
