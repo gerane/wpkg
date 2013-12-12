@@ -11,7 +11,7 @@
 <package
   id="openvpn"
   name="OpenVPN Client"
-  revision="%version%-2"
+  revision="%version%-3"
   reboot="false"
   priority="1"> <!-- run it late to enable updates via VPN -->
 
@@ -29,9 +29,7 @@
   <install cmd='%COMSPEC% /C certutil -addstore "TrustedPublisher" "%CERTIFICATE%" >NUL' timeout='180' />
   <install cmd='"%PKG_SOURCE%" /S >NUL' timeout='300'><exit code="3010" /></install>
   <install cmd='%COMSPEC% /c xcopy /Y "%PKG_SOURCE%" c:\ >NUL'><exit code="any" /></install>
-  <install cmd='%PKG_DESTINATION%\bin\openvpn-gui.exe' />
-  <install cmd='ping -n10 127.0.0.1 >NUL'><exit code='any' /></install>
-  <install cmd='taskkill /f /im openvpn-gui.exe'><exit code='any' /></install>
+  <install cmd='%PKG_DESTINATION%\bin\openvpn-gui.exe' timeout='10' />
   <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_dir /d "%TEMP%\OpenVPN\log" /f' />
   <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v editor /d "%WINDIR%\system32\ipconfig.exe" /f' />
   <install cmd='reg ADD "HKLM\SOFTWARE\OpenVPN-GUI" /t REG_SZ /v log_viewer /d "%WINDIR%\system32\ipconfig.exe" /f' />
