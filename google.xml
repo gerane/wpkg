@@ -38,7 +38,7 @@
 <package
   id="google_picasa"
   name="Picasa"
-  revision="%version%-3"
+  revision="%version%-4"
   priority="10"
   reboot="false" >
 
@@ -59,7 +59,7 @@
   <remove include='kill' />
   <remove cmd='"%PKG_DESTINATION%\Uninstall.exe" /S /L'><exit code='1' /></remove>
   <!-- uninstall WILL return before finishing, even if we use start /wait so we force a delay -->
-  <remove cmd='%WINDIR%\system32\ping -n60 localhost >NUL' timeout='70'><exit code='any'>
+  <remove cmd='%WINDIR%\system32\ping -n60 localhost >NUL' timeout='70'><exit code='any' /></remove>
 
   <commands>
     <command type='kill' cmd='sc config gusvc start= disabled'><exit code='any' /></command>
