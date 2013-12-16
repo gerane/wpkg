@@ -13,7 +13,7 @@
 <package
   id="openvpn"
   name="OpenVPN Client"
-  revision="%version%-8"
+  revision="%version%-9"
   reboot="false"
   priority="1"> <!-- run it late to enable updates via VPN -->
 
@@ -23,7 +23,7 @@
   <variable name="PKG_SOURCE"      value="%PKG_SOURCE_DIR%\openvpn-install-%version%-i686.exe"   architecture="x86" />
   <variable name="PKG_SOURCE"      value="%PKG_SOURCE_DIR%\openvpn-install-%version%-x86_64.exe" architecture="x64" />
   <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\OpenVPN" />
-  <variable name="CACHE_DIR"       value="%PROGRAMDATA\OpenVPN" />
+  <variable name="CACHE_DIR"       value="%PROGRAMDATA%\OpenVPN" />
   <variable name="CERTIFICATE"     value="%PKG_SOURCE_DIR%\OpenVPN_Certificate.cer" />
 
   <check type="uninstall" condition="exists" path="OpenVPN %version%.*" /> <!-- 2.3.1 has a space after the version -->
