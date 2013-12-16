@@ -103,13 +103,19 @@
   reboot="false"
   priority="50">
 
+  <variable name="VERSION"      value="4.0.30319" />
+  <variable name="VERSION_FULL" value="%VERSION%.17929" />
   <variable name="PKG_SOURCE"   value="%SOFTWARE%\Microsoft\DotNet\dotNetFx45_Full_x86_x64.exe" />
-
   <variable name="PKG_TARGET"   value="%TEMP%\dotnet45" />
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Full_x86.msi"     architecture="x86" />
   <variable name="PKG_SOURCE_1" value="%PKG_TARGET%\netfx_Full_x64.msi"     architecture="x64" />
+  <variable name='PKG_DESTINATION' value='%windir%\Microsoft.NET\Framework\%VERSION%'   architecture='x86' />
+  <variable name='PKG_DESTINATION' value='%windir%\Microsoft.NET\Framework64\%VERSION%' architecture='x64' />
 
-  <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5.*" />
+  <check type='conditional' condition='or'>
+    <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5.*" />
+    <check type='file' condition='versiongreaterorequal' path='%PKG_DESTINATION%\aspnet_compiler.exe' value='%VERSION_FULL%' />
+  </check>
 
   <install cmd='"%PKG_TARGET%\SetupUtility" /aupause'><exit code='any' /></install>
   <install cmd='%COMSPEC% /c IF NOT EXIST "%PKG_TARGET%" mkdir "%PKG_TARGET%"' />
@@ -123,7 +129,7 @@
   <upgrade   include='install' />
   <downgrade include='install' />
 
-  <remove cmd='"%windir%\Microsoft.NET\Framework64\v4.0.30319\SetupCache\setup.exe" /uninstall /x86 /x64 /ia64 /q' />
+  <remove cmd='"%PKG_DESTINATION%\SetupCache\setup.exe" /uninstall /x86 /x64 /ia64 /q' />
 
 </package>
 
