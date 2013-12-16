@@ -38,7 +38,7 @@
 <package
   id="google_picasa"
   name="Picasa"
-  revision="%version%-1"
+  revision="%version%-2"
   priority="10"
   reboot="false" >
 
@@ -58,7 +58,7 @@
   <upgrade   include='install' />
   <downgrade include='install' />
 
-  <remove cmd='"%PKG_DESTINATION%\Uninstall.exe" /S'><exit code='1' /></remove>
+  <remove cmd='"%PKG_DESTINATION%\Uninstall.exe" /S /L'><exit code='1' /></remove>
 
 </package>
 
