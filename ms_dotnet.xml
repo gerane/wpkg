@@ -113,7 +113,7 @@
   <variable name='PKG_DESTINATION' value='%windir%\Microsoft.NET\Framework64\%VERSION%' architecture='x64' />
 
   <check type='conditional' condition='or'>
-    <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5" />
+    <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5.*" />
     <check type='file' condition='versiongreaterorequal' path='%PKG_DESTINATION%\aspnet_compiler.exe' value='%VERSION_FULL%' />
   </check>
 
