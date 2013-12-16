@@ -38,7 +38,7 @@
 <package
   id="google_picasa"
   name="Picasa"
-  revision="%version%-2"
+  revision="%version%-3"
   priority="10"
   reboot="false" >
 
@@ -49,16 +49,22 @@
 
   <check type='uninstall' condition='versiongreaterorequal' path='Picasa 3' value='%version%' />
 
-  <install cmd='"%SOFTWARE%\Google\Picasa\picasa%fileversion%-setup.exe" /S /L' >
-    <exit code='1' />
-    <exit code='128' />
-  </install>
-  <install cmd='sc config gusvc start= disabled' />
+  <install include='kill' />
+  <install cmd='%COMSPEC% /c start "Installing" /wait "%SOFTWARE%\Google\Picasa\picasa%fileversion%-setup.exe" /S /L' />
+  <install include='kill' />
 
   <upgrade   include='install' />
   <downgrade include='install' />
 
+  <remove include='kill' />
   <remove cmd='"%PKG_DESTINATION%\Uninstall.exe" /S /L'><exit code='1' /></remove>
+  <!-- uninstall WILL return before finishing, even if we use start /wait so we force a delay -->
+  <remove cmd='%WINDIR%\system32\ping -n60 localhost >NUL' timeout='70'><exit code='any'>
+
+  <commands>
+    <command type='kill' cmd='sc config gusvc start= disabled'><exit code='any' /></command>
+    <command type='kill' cmd='net stop gusvc'><exit code='any' /></command>
+  </commands>
 
 </package>
 
