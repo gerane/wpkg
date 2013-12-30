@@ -99,7 +99,7 @@
 <package
   id="dotnet4"
   name="Microsoft .NET 4.5"
-  revision="14"
+  revision="15"
   reboot="false"
   priority="50">
 
@@ -112,7 +112,7 @@
   <variable name='PKG_DESTINATION' value='%windir%\Microsoft.NET\Framework\%VERSION%'   architecture='x86' />
   <variable name='PKG_DESTINATION' value='%windir%\Microsoft.NET\Framework64\%VERSION%' architecture='x64' />
 
-  <check type='conditional' condition='or'>
+  <check type='logical' condition='or'>
     <check type="uninstall" condition="exists" path="Microsoft .NET Framework 4.5.*" />
     <check type='file' condition='versiongreaterorequal' path='%PKG_DESTINATION%\aspnet_compiler.exe' value='%VERSION_FULL%' />
   </check>
