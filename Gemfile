@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # gem 'rget', git: 'git://github.com/nwt/rget.git'
 gem 'awesome_print'
