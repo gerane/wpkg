@@ -40,29 +40,29 @@ class AppError < StandardError ; end
 
 PACKAGES = {
 
-:sevenzip => [
-  {:url => 'http://downloads.sourceforge.net/sevenzip/7z%fileversion%.msi',
-  :destination => ['7Zip', BIT_32_DIR, '7z%fileversion%.msi'],
-  :package_id => '7zip'},
-  {:url => 'http://downloads.sourceforge.net/sevenzip/7z%fileversion%-x64.msi',
-  :destination => ['7Zip', BIT_64_DIR, '7z%fileversion%.msi'],
-  :package_id => '7zip'},
+sevenzip: [
+  {url: 'http://downloads.sourceforge.net/sevenzip/7z%fileversion%.msi',
+  destination: ['7Zip', BIT_32_DIR, '7z%fileversion%.msi'],
+  package_id: '7zip'},
+  {url: 'http://downloads.sourceforge.net/sevenzip/7z%fileversion%-x64.msi',
+  destination: ['7Zip', BIT_64_DIR, '7z%fileversion%.msi'],
+  package_id: '7zip'},
 ],
 
-:bullzip => [
-  {:url => 'http://mirror.pdfatlas.com/mirror/BullzipPDFPrinter_%fileversion%.zip',
-  :destination => ['BullZip', 'BullzipPDFPrinter_%fileversion%.zip'],
-  :package_id => 'bullzip_pdfprinter',
-  :notice => 'Please unzip the downloaded file'},
+bullzip: [
+  {url: 'http://mirror.pdfatlas.com/mirror/BullzipPDFPrinter_%fileversion%.zip',
+  destination: ['BullZip', 'BullzipPDFPrinter_%fileversion%.zip'],
+  package_id: 'bullzip_pdfprinter',
+  notice: 'Please unzip the downloaded file'},
 ],
 
-:console => [
-  {:url => 'http://sourceforge.net/projects/console/files/console-devel/2.00/Console-%fileversion%_32bit.zip/download',
-  :destination => ['Console2', 'Console-%fileversion%_32bit.zip'],
-  :package_id => 'console2' },
-  {:url => 'http://sourceforge.net/projects/console/files/console-devel/2.00/Console-%fileversion%_64bit.zip/download',
-  :destination => ['Console2', 'Console-%fileversion%_64bit.zip'],
-  :package_id => 'console2' },
+console: [
+  {url: 'http://sourceforge.net/projects/console/files/console-devel/2.00/Console-%fileversion%_32bit.zip/download',
+  destination: ['Console2', 'Console-%fileversion%_32bit.zip'],
+  package_id: 'console2' },
+  {url: 'http://sourceforge.net/projects/console/files/console-devel/2.00/Console-%fileversion%_64bit.zip/download',
+  destination: ['Console2', 'Console-%fileversion%_64bit.zip'],
+  package_id: 'console2' },
 ],
 
 dcsu: [
@@ -71,67 +71,67 @@ dcsu: [
     package_id: 'dcsu' },
 ],
 
-:dotnet3 => [
-  {:url => 'http://download.microsoft.com/download/2/0/e/20e90413-712f-438c-988e-fdaa79a8ac3d/dotnetfx35.exe',
-  :destination => ['Microsoft', 'DotNet', 'dotnetfx35.exe']},
-  {:url => 'http://download.microsoft.com/download/C/6/A/C6ADC586-2518-404B-8973-E1E22C556AF4/NDP20SP2-KB958481-x86.exe',
-  :destination => ['Microsoft', 'DotNet', 'NDP20SP2-KB958481-x86.exe']},
-  {:url => 'http://download.microsoft.com/download/C/6/A/C6ADC586-2518-404B-8973-E1E22C556AF4/NDP30SP2-KB958483-x86.exe',
-  :destination => ['Microsoft', 'DotNet', 'NDP30SP2-KB958483-x86.exe']},
-  {:url => 'http://download.microsoft.com/download/C/6/A/C6ADC586-2518-404B-8973-E1E22C556AF4/NDP35SP1-KB958484-x86.exe',
-  :destination => ['Microsoft', 'DotNet', 'NDP35SP1-KB958484-x86.exe']},
+dotnet3: [
+  {url: 'http://download.microsoft.com/download/2/0/e/20e90413-712f-438c-988e-fdaa79a8ac3d/dotnetfx35.exe',
+  destination: ['Microsoft', 'DotNet', 'dotnetfx35.exe']},
+  {url: 'http://download.microsoft.com/download/C/6/A/C6ADC586-2518-404B-8973-E1E22C556AF4/NDP20SP2-KB958481-x86.exe',
+  destination: ['Microsoft', 'DotNet', 'NDP20SP2-KB958481-x86.exe']},
+  {url: 'http://download.microsoft.com/download/C/6/A/C6ADC586-2518-404B-8973-E1E22C556AF4/NDP30SP2-KB958483-x86.exe',
+  destination: ['Microsoft', 'DotNet', 'NDP30SP2-KB958483-x86.exe']},
+  {url: 'http://download.microsoft.com/download/C/6/A/C6ADC586-2518-404B-8973-E1E22C556AF4/NDP35SP1-KB958484-x86.exe',
+  destination: ['Microsoft', 'DotNet', 'NDP35SP1-KB958484-x86.exe']},
 ],
 
-:dotnet4 => [
-  {:url => 'http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe',
-  :destination => ['Microsoft', 'DotNet', 'dotNetFx40_Full_x86_x64.exe']},
+dotnet4: [
+  {url: 'http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe',
+  destination: ['Microsoft', 'DotNet', 'dotNetFx40_Full_x86_x64.exe']},
 ],
 
-:firefox => [
-  {:url => 'http://ftp.mozilla.org/pub/firefox/releases/%version%/win32/%language%/Firefox Setup %version%.exe',
-  :destination => ['Mozilla', 'Firefox', 'Firefox Setup %version%.exe'],
-  :package_id => 'firefox',
-  :language => 'en-US'},
+firefox: [
+  {url: 'http://ftp.mozilla.org/pub/firefox/releases/%version%/win32/%language%/Firefox Setup %version%.exe',
+  destination: ['Mozilla', 'Firefox', 'Firefox Setup %version%.exe'],
+  package_id: 'firefox',
+  language: 'en-US'},
 ],
 
-:firefox_esr => [
-  {:url => 'ftp://ftp.mozilla.org/pub/firefox/releases/%version%esr/win32/%language%/Firefox Setup %version%esr.exe',
-  :destination => ['Mozilla', 'Firefox', 'Firefox Setup %version%esr.exe'],
-  :package_id => 'firefox_esr',
-  :language => 'en-US'},
+firefox_esr: [
+  {url: 'ftp://ftp.mozilla.org/pub/firefox/releases/%version%esr/win32/%language%/Firefox Setup %version%esr.exe',
+  destination: ['Mozilla', 'Firefox', 'Firefox Setup %version%esr.exe'],
+  package_id: 'firefox_esr',
+  language: 'en-US'},
 ],
 
 
-:flash => [
-  {:url => 'http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_%mainversion%_active_x.msi',
-  :destination => ['Adobe', 'Flash', '%shortversion%', 'install_flash_player_%mainversion%_active_x.msi'],
-  :package_id => 'flash' },
-  {:url => 'http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_%mainversion%_plugin.msi',
-  :destination => ['Adobe', 'Flash', '%shortversion%', 'install_flash_player_%mainversion%_plugin.msi'],
-  :package_id => 'flash' },
+flash: [
+  {url: 'http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_%mainversion%_active_x.msi',
+  destination: ['Adobe', 'Flash', '%shortversion%', 'install_flash_player_%mainversion%_active_x.msi'],
+  package_id: 'flash' },
+  {url: 'http://download.macromedia.com/get/flashplayer/current/licensing/win/install_flash_player_%mainversion%_plugin.msi',
+  destination: ['Adobe', 'Flash', '%shortversion%', 'install_flash_player_%mainversion%_plugin.msi'],
+  package_id: 'flash' },
 ],
 
-:git => [
-  {:url => 'http://msysgit.googlecode.com/files/Git-%version%-preview%reldate%.exe',
-  :destination => ['Git', 'Git-%version%-preview%reldate%.exe'],
-  :package_id => 'git' },
+git: [
+  {url: 'http://msysgit.googlecode.com/files/Git-%version%-preview%reldate%.exe',
+  destination: ['Git', 'Git-%version%-preview%reldate%.exe'],
+  package_id: 'git' },
 ],
 
-:gs => [
-  {:url => 'http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/%version%/gs%fileversion%w32.exe',
-  :destination => ['GhostScript', 'gs%fileversion%w32.exe'],
-  :package_id => 'ghostscript' },
-  {:url => 'http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/%version%/gs%fileversion%w64.exe',
-  :destination => ['GhostScript', 'gs%fileversion%w64.exe'],
-  :package_id => 'ghostscript' },
+gs: [
+  {url: 'http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/%version%/gs%fileversion%w32.exe',
+  destination: ['GhostScript', 'gs%fileversion%w32.exe'],
+  package_id: 'ghostscript' },
+  {url: 'http://downloads.sourceforge.net/project/ghostscript/GPL%20Ghostscript/%version%/gs%fileversion%w64.exe',
+  destination: ['GhostScript', 'gs%fileversion%w64.exe'],
+  package_id: 'ghostscript' },
 ],
 
-:ie8 => [
-  {:url => 'http://download.microsoft.com/download/C/C/0/CC0BD555-33DD-411E-936B-73AC6F95AE11/IE8-WindowsXP-x86-ENU.exe',
-  :destination => ['Microsoft', 'IE8', 'IE8-WindowsXP-x86-ENU.exe']},
+ie8: [
+  {url: 'http://download.microsoft.com/download/C/C/0/CC0BD555-33DD-411E-936B-73AC6F95AE11/IE8-WindowsXP-x86-ENU.exe',
+  destination: ['Microsoft', 'IE8', 'IE8-WindowsXP-x86-ENU.exe']},
 ],
 
-:ie9 => [
+ie9: [
   { url: 'http://download.microsoft.com/download/5/E/4/5E404378-9A5D-41AB-AFBA-1AC04F3B2A13/Windows6.1-KB2454826-v2-x86.msu',
     destination: ['Microsoft', 'IE9', BIT_32_DIR, 'Windows6.1-KB2454826-v2-x86.msu']},
   { url: 'http://download.microsoft.com/download/D/B/D/DBD62263-2627-49CB-B675-AA1601EBE0BD/Windows6.1-KB2454826-v2-x64.msu',
@@ -142,105 +142,105 @@ dcsu: [
    destination: ['Microsoft', 'IE9', BIT_64_DIR, 'IE9-Windows7-enu.exe']},
 ],
 
-:installer => [
-  {:url => 'http://download.microsoft.com/download/5/f/d/5fdc6240-2127-42b6-8e16-bab6171db233/WindowsXP-KB898461-x86-ENU.exe',
-  :destination => ['Microsoft', 'Windows Installer', 'WindowsXP-KB898461-x86-ENU.exe']},
-  {:url => 'http://download.microsoft.com/download/2/6/1/261fca42-22c0-4f91-9451-0e0f2e08356d/WindowsXP-KB942288-v3-x86.exe',
-  :destination => ['Microsoft', 'Windows Installer', 'WindowsXP-KB942288-v3-x86.exe']},
+installer: [
+  {url: 'http://download.microsoft.com/download/5/f/d/5fdc6240-2127-42b6-8e16-bab6171db233/WindowsXP-KB898461-x86-ENU.exe',
+  destination: ['Microsoft', 'Windows Installer', 'WindowsXP-KB898461-x86-ENU.exe']},
+  {url: 'http://download.microsoft.com/download/2/6/1/261fca42-22c0-4f91-9451-0e0f2e08356d/WindowsXP-KB942288-v3-x86.exe',
+  destination: ['Microsoft', 'Windows Installer', 'WindowsXP-KB942288-v3-x86.exe']},
 ],
 
-:jruby => [
-  {:url => 'http://jruby.org.s3.amazonaws.com/downloads/%version%/jruby_windows_%fileversion%.exe',
-  :destination => ['Ruby', 'jruby_windows_%fileversion%.exe'],
-  :package_id => 'jruby'},
-  {:url => 'http://jruby.org.s3.amazonaws.com/downloads/%version%/jruby_windows_x64_%fileversion%.exe',
-  :destination => ['Ruby', 'jruby_windows_x64_%fileversion%.exe'],
-  :package_id => 'jruby'},
+jruby: [
+  {url: 'http://jruby.org.s3.amazonaws.com/downloads/%version%/jruby_windows_%fileversion%.exe',
+  destination: ['Ruby', 'jruby_windows_%fileversion%.exe'],
+  package_id: 'jruby'},
+  {url: 'http://jruby.org.s3.amazonaws.com/downloads/%version%/jruby_windows_x64_%fileversion%.exe',
+  destination: ['Ruby', 'jruby_windows_x64_%fileversion%.exe'],
+  package_id: 'jruby'},
 ],
 
-:lastpass => [
-  {:url => 'https://download.lastpass.com/lastpass.exe',
-  :destination => ['LastPass', '%version%', BIT_32_DIR, 'lastpass.exe'],
-  :package_id => 'lastpass'},
-  {:url => 'https://download.lastpass.com/lastpass_x64.exe',
-  :destination => ['LastPass', '%version%', BIT_64_DIR, 'lastpass.exe'],
-  :package_id => 'lastpass'},
+lastpass: [
+  {url: 'https://download.lastpass.com/lastpass.exe',
+  destination: ['LastPass', '%version%', BIT_32_DIR, 'lastpass.exe'],
+  package_id: 'lastpass'},
+  {url: 'https://download.lastpass.com/lastpass_x64.exe',
+  destination: ['LastPass', '%version%', BIT_64_DIR, 'lastpass.exe'],
+  package_id: 'lastpass'},
 ],
 
-:keepass => [
-  {:url => 'http://downloads.sourceforge.net/keepass/KeePass-%version%-Setup.exe',
-  :destination => ['KeePass', 'KeePass-%version%-Setup.exe'],
-  :package_id => 'keepass'},
+keepass: [
+  {url: 'http://downloads.sourceforge.net/keepass/KeePass-%version%-Setup.exe',
+  destination: ['KeePass', 'KeePass-%version%-Setup.exe'],
+  package_id: 'keepass'},
 ],
 
-:msse => [
-  {:url => 'http://mse.dlservice.microsoft.com/download/A/3/8/A38FFBF2-1122-48B4-AF60-E44F6DC28BD8/%language%/x86/mseinstall.exe',
-  :destination => ['Microsoft', 'MSSE', BIT_32_DIR, 'mseinstall.exe'],
-  :language => 'enus'},
-  {:url => 'http://mse.dlservice.microsoft.com/download/A/3/8/A38FFBF2-1122-48B4-AF60-E44F6DC28BD8/%language%/amd64/mseinstall.exe',
-  :destination => ['Microsoft', 'MSSE', BIT_64_DIR, 'mseinstall.exe'],
-  :language => 'enus'},
+msse: [
+  {url: 'http://mse.dlservice.microsoft.com/download/A/3/8/A38FFBF2-1122-48B4-AF60-E44F6DC28BD8/%language%/x86/mseinstall.exe',
+  destination: ['Microsoft', 'MSSE', BIT_32_DIR, 'mseinstall.exe'],
+  language: 'enus'},
+  {url: 'http://mse.dlservice.microsoft.com/download/A/3/8/A38FFBF2-1122-48B4-AF60-E44F6DC28BD8/%language%/amd64/mseinstall.exe',
+  destination: ['Microsoft', 'MSSE', BIT_64_DIR, 'mseinstall.exe'],
+  language: 'enus'},
 ],
 
-:netpas => [
-  {:url => 'http://file.netpas.net/ftp/NetpasDistance.exe',
-  :destination => ['Netpas', 'Distance', '%version%', 'NetpasDistance.exe'],
-  :package_id => 'netpas'},
+netpas: [
+  {url: 'http://file.netpas.net/ftp/NetpasDistance.exe',
+  destination: ['Netpas', 'Distance', '%version%', 'NetpasDistance.exe'],
+  package_id: 'netpas'},
 ],
 
-:npp => [
-  {:url => 'http://download.tuxfamily.org/notepadplus/%version%/npp.%version%.Installer.exe',
-  :destination => ['Notepad', 'npp.%version%.Installer.exe'],
-  :package_id => 'notepad'},
+npp: [
+  {url: 'http://download.tuxfamily.org/notepadplus/%version%/npp.%version%.Installer.exe',
+  destination: ['Notepad', 'npp.%version%.Installer.exe'],
+  package_id: 'notepad'},
 ],
 
-:pdn => [
-  {:url => 'http://www.dotpdn.com/files/Paint.NET.%version%.Install.zip',
-  :destination => ['PaintDotNet', 'Paint.NET.%version%.Install.zip'],
-  :package_id => 'pdn',
-  :unzip => true},
+pdn: [
+  {url: 'http://www.dotpdn.com/files/Paint.NET.%version%.Install.zip',
+  destination: ['PaintDotNet', 'Paint.NET.%version%.Install.zip'],
+  package_id: 'pdn',
+  unzip: true},
 ],
 
-:puretext => [
-  {:url => 'http://www.stevemiller.net/downloads/puretext_%version%_32-bit.zip',
-  :destination => ['PureText', 'puretext_%version%_32-bit.zip'],
-  :package_id => 'puretext'},
-  {:url => 'http://www.stevemiller.net/downloads/puretext_%version%_64-bit.zip',
-  :destination => ['PureText', 'puretext_%version%_64-bit.zip'],
-  :package_id => 'puretext'},
+puretext: [
+  {url: 'http://www.stevemiller.net/downloads/puretext_%version%_32-bit.zip',
+  destination: ['PureText', 'puretext_%version%_32-bit.zip'],
+  package_id: 'puretext'},
+  {url: 'http://www.stevemiller.net/downloads/puretext_%version%_64-bit.zip',
+  destination: ['PureText', 'puretext_%version%_64-bit.zip'],
+  package_id: 'puretext'},
 ],
 
-:rsat => [
-  {:url => 'http://download.microsoft.com/download/4/F/7/4F71806A-1C56-4EF2-9B4F-9870C4CFD2EE/Windows6.1-KB958830-x86-RefreshPkg.msu',
-  :destination => ['Microsoft', 'RSAT', 'Windows6.1-KB958830-x86-RefreshPkg.msu']},
-  {:url => 'http://download.microsoft.com/download/4/F/7/4F71806A-1C56-4EF2-9B4F-9870C4CFD2EE/Windows6.1-KB958830-x64-RefreshPkg.msu',
-  :destination => ['Microsoft', 'RSAT', 'Windows6.1-KB958830-x64-RefreshPkg.msu']},
+rsat: [
+  {url: 'http://download.microsoft.com/download/4/F/7/4F71806A-1C56-4EF2-9B4F-9870C4CFD2EE/Windows6.1-KB958830-x86-RefreshPkg.msu',
+  destination: ['Microsoft', 'RSAT', 'Windows6.1-KB958830-x86-RefreshPkg.msu']},
+  {url: 'http://download.microsoft.com/download/4/F/7/4F71806A-1C56-4EF2-9B4F-9870C4CFD2EE/Windows6.1-KB958830-x64-RefreshPkg.msu',
+  destination: ['Microsoft', 'RSAT', 'Windows6.1-KB958830-x64-RefreshPkg.msu']},
 ],
 
 # 'http://download.skype.com/SkypeSetup.msi',
-:skype => [
-  {:url => 'http://www.skype.com/go/getskype-msi',
-  :destination => ['Skype', '%version%', 'SkypeSetup.msi'],
-  :package_id => 'skype' },
+skype: [
+  {url: 'http://www.skype.com/go/getskype-msi',
+  destination: ['Skype', '%version%', 'SkypeSetup.msi'],
+  package_id: 'skype' },
 ],
 
-:sumatrapdf => [
-  {:url => 'http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-%version%-install.exe',
-  :destination => ['SumatraPDF', 'SumatraPDF-%version%-install.exe'],
-  :package_id => 'sumatrapdf'},
+sumatrapdf: [
+  {url: 'http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-%version%-install.exe',
+  destination: ['SumatraPDF', 'SumatraPDF-%version%-install.exe'],
+  package_id: 'sumatrapdf'},
 ],
 
-:tnef => [
-  {:url => 'http://www.petersen.de/tnef2win/files/tnef2win.exe',
-  :destination => ['tnef2win', 'tnef2win.exe'],
-  :package_id => 'tnef2win'},
+tnef: [
+  {url: 'http://www.petersen.de/tnef2win/files/tnef2win.exe',
+  destination: ['tnef2win', 'tnef2win.exe'],
+  package_id: 'tnef2win'},
 ],
 
-:trueview => [
-  {:url => 'http://download.autodesk.com/esd/dwgtrueview/%version%/SetupDWGTrueView%version%_32bit.exe',
-  :destination => ['Autodesk', 'DWGTrueview', '%version%', BIT_32_DIR, 'SetupDWGTrueView%version%_32bit.exe'],
-  :package_id => 'autodesk_dwgtrueview' },
-  {:url => 'http://download.autodesk.com/esd/dwgtrueview/%version%/SetupDWGTrueView%version%_64bit.exe',
+trueview: [
+  {url: 'http://download.autodesk.com/esd/dwgtrueview/%version%/SetupDWGTrueView%version%_32bit.exe',
+  destination: ['Autodesk', 'DWGTrueview', '%version%', BIT_32_DIR, 'SetupDWGTrueView%version%_32bit.exe'],
+  package_id: 'autodesk_dwgtrueview' },
+  {url: 'http://download.autodesk.com/esd/dwgtrueview/%version%/SetupDWGTrueView%version%_64bit.exe',
   :destination => ['Autodesk', 'DWGTrueview', '%version%', BIT_64_DIR, 'SetupDWGTrueView%version%_64bit.exe'],
   :package_id => 'autodesk_dwgtrueview' },
 ],
@@ -413,15 +413,15 @@ get_stuff.rb [OPTIONS] --package PACKAGE_NAME DIR
       firefox     Firefox **
       firefox_esr Firefox Extended Support Release **
       flash       Flash Player
-      gs       	  GhostScript **
+      gs          GhostScript **
       ie8         Internet Explorer 8 for Windows XP
       ie9         Internet Explorer 9
       installer   Windows Installer 4.5
       jruby       JRuby
-      keepass	    KeePass
+      keepass     KeePass
       netpas      Netpas Distance
       npp         Notepad++ **
-      lastpass	  LastPass
+      lastpass    LastPass
       msse        Microsoft Security Essentials
       pdn         PaintDotNet
       rsat        Remote Systems Administration Tool
@@ -436,7 +436,7 @@ get_stuff.rb [OPTIONS] --package PACKAGE_NAME DIR
       vlc         VLC Player **
       xml         MSXML
       wpkg        WPKG Client
-      wpkg_gp	    WPKG GP
+      wpkg_gp     WPKG GP
 
       Packages marked with ** support version specific downloads
 
@@ -512,19 +512,19 @@ def download(package_def)
     url = replace_variables(p[:url])
     raise AppError, "Unable to figure out URL: #{url}" unless url
     raise AppError, "Unable to figure out where to write local file: #{fullpath}" unless fullpath
-    FileUtils.mkdir_p(path) unless Dir.exists?(path)
-    if File.exists?(fullpath)
+    FileUtils.mkdir_p(path) unless Dir.exist?(path)
+    if File.exist?(fullpath)
       if @overwrite && File.exist?(fullpath)
         FileUtils.safe_unlink(fullpath)
         puts 'INFO: Removing existing file'
       end
     end
     d = File.dirname(fullpath)
-    unless Dir.exists?(d)
+    unless Dir.exist?(d)
       puts "INFO: Directory #{d} not found. Creating..."
       FileUtils.mkdir_p(d)
     else
-      puts "NOTICE: Directory #{d} exists."
+      puts "NOTICE: Directory #{d} exists"
     end
     system "axel '#{url}' -a -o '#{fullpath}'"
     puts "NOTICE: #{p[:notice] unless p[:notice].nil?}"
@@ -535,7 +535,7 @@ begin
   raise ArgumentError, 'Unknown package' if @package.nil?
   raise ArgumentError, 'Missing dir argument' if ARGV.length != 1
   @dir = ARGV.shift
-  FileUtils.mkdir_p(@dir) unless Dir.exists?(@dir)
+  FileUtils.mkdir_p(@dir) unless Dir.exist?(@dir)
   if @package.is_a? Hash
     @package.each_value do |v|
       download(v)
