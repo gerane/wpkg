@@ -15,7 +15,7 @@
 <package
   id="bullzip_pdfprinter"
   name="Bullzip PDF Printer"
-  revision="%version%-0"
+  revision="%version%-1"
   reboot="false">
 
   <depends package-id="ghostscript" />
@@ -24,8 +24,7 @@
   <variable name="version" value="8.2.0.1406" />
   <variable name="fileversion" value="8_2_0_1406" />
   <variable name="PKG_FLAGS" value='/VERYSILENT /SP- /SUPPRESSMSGBOXES /NORESTART /NOCANCEL /NOICONS /PRESERVEDEFAULTPRINTER /PRESERVEADVANCEDSETTINGS /GSLITEDOWNLOADMODE=never /RESTARTEXITCODE=3010 /LOG="%TEMP%\bullzip.log"' />
-  <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\Bullzip\PDF Printer"      architecture="x86" />
-  <variable name="PKG_DESTINATION" value="%PROGRAMFILES(x86)%\Bullzip\PDF Printer" architecture="x64" />
+  <variable name="PKG_DESTINATION" value="%PROGRAMFILES%\Bullzip\PDF Printer"      />
 
   <check type="uninstall" condition="exists" path="Bullzip PDF Printer %version%" />
 
