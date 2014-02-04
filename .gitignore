@@ -1,4 +1,5 @@
 *~
+.bundle
 .idea
 packages.list
 wpkg.js
