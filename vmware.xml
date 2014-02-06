@@ -10,16 +10,17 @@
 <package
   id="vmware_vsphereclient"
   name="VMware vSphere Client"
-  revision="%version%-1"
+  revision="%version%-0"
   reboot="false">
 
   <depends package-id="vjruntime" />
 
-  <variable name="version" value="5.0.0.16964" />
+  <variable name="mainversion" value="5.5" />
+  <variable name="version" value="%mainversion%.0.3165" />
 
-  <check type="uninstall" condition="exists" path="VMware vSphere Client 5.0" />
+  <check type="uninstall" condition="exists" path="VMware vSphere Client %mainversion%" />
 
-  <install cmd='"%SOFTWARE%\VMware\VMware-viclient.exe" /V"%MSI%" /s /w'>
+  <install cmd='"%SOFTWARE%\VMware\VMware-viclient-%mainversion%.exe" /V"%MSI%" /s /w'>
     <exit code='1641' />
     <exit code='3010' />
   </install>
