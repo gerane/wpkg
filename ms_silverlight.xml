@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<package
+  id="silverlight"
+  name="Microsoft Silverlight"
+  revision="%version%"
+  reboot="false">
+
+  <variable name="version" value="5.1.10411.0" />
+
+  <check type="uninstall" condition="versiongreaterorequal" path="Microsoft Silverlight" value="%version%" />
+
+  <install cmd='"%SOFTWARE%\Microsoft\Silverlight\Silverlight-%version%.exe" /q /noupdate' />
+  <upgrade include="install" />
+  <remove cmd='msiexec /qn /x{89F4137D-6C26-4A84-BDB8-2E5A4BB71E00}' />
+</package>
