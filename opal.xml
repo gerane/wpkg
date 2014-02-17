@@ -3,7 +3,7 @@
 <!--
   NOTES
   1) Copy addons/opal.iss to %SOFTWARE%\Opal
-
+  2) Doesn't work on 64 bit due to the installer being 16-bit
 -->
 
 <packages>
@@ -11,7 +11,7 @@
 <package
   id="opal"
   name="Opal Player"
-  revision="%version%-1"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
@@ -21,12 +21,12 @@
 
   <check type="file" condition="versionequalto" path="%PKG_DESTINATION%\OpalATL.dll" value="%version%" />
 
-  <install cmd='%COMSPEC% /C copy /y "%SOFTWARE%\Opal\setup.iss" "c:\opal.iss"' />
-  <install cmd='"%SOFTWARE%\Opal\ieplug.exe" /s /a /s /sms /f1c:\opal.iss' timeout='300' />
+  <install cmd='%COMSPEC% /C copy /y "%SOFTWARE%\Opal\setup.iss" "%PROGRAMDATA%\opal.iss"' />
+  <install cmd='"%SOFTWARE%\Opal\ieplug.exe" /s /a /s /sms /f1%PROGRAMDATA%\opal.iss' timeout='300' architecture='x86' />
   <install include='remove_iss' />
 
   <!--
-      Put this back in when we are actually doing an upgrade
+  Put this back in when we are actually doing an upgrade
   <upgrade   include='install' />
   <downgrade include='install' />
   -->
@@ -35,7 +35,7 @@
   <remove cmd='%comspec% /c RD /Q /S "%PKG_DESTINATION%\"' />
 
   <commands>
-    <command type='remove_iss' cmd='%COMSPEC% /C IF EXIST c:\opal.iss del /F /Q c:\opal.iss' />
+    <command type='remove_iss' cmd='%COMSPEC% /C IF EXIST "%PROGRAMDATA%\opal.iss" del /F /Q "%PROGRAMDATA%\opal.iss"' />
   </commands>
 
 </package>
