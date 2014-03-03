@@ -33,7 +33,7 @@
 <package
   id="loadplanner"
   name="LoadPlanner"
-  revision="%version%-2"
+  revision="%version%-3"
   reboot="false"
   priority="10">
 
@@ -56,6 +56,8 @@
   </check>
 
   <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\LoadPlanner.msi" /lv* "%TEMP%\wpkg-loadplanner.log"' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\LoadPlanner 3821 update.msi" /lv* "%TEMP%\wpkg-loadplanner-3821.log"' />
+  <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\LoadPlanner 4008 update.msi" /lv* "%TEMP%\wpkg-loadplanner-4008.log"' />
   <install cmd='msiexec %MSI% /i "%SOFTWARE%\LoadPlanner\%updatefile%" /lv* "%TEMP%\wpkg-loadplanner-%version%.log"' />
   <install cmd='%COMSPEC% /c assoc .pjc=LoadPlanner' />
   <install cmd='%COMSPEC% /c ftype LoadPlanner="%PKG_DESTINATION%\LpMultiP.exe" "%1"' />
