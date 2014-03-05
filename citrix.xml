@@ -9,12 +9,11 @@
   reboot="false"
   priority="10">
 
-  <variable name="version" value="11.3.0.24" />
+  <variable name="version" value="14.1.2.3" />
 
   <check type="uninstall" condition="versiongreaterorequal" path="Citrix Receiver" value="%version%" />
 
-  <install   cmd='msiexec /i "%SOFTWARE%\Citrix\Receiver\%version%\CitrixReceiverWeb.exe" /silent' />
-
+  <install cmd='"%SOFTWARE%\Citrix\Receiver\%version%\CitrixReceiver.exe" /silent /norestart /includeSSON /ENABLE_SSON=Yes' />
   <upgrade   include='install' />
   <downgrade include='install' />
 
