@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<packages>
+
 <package
   id="silverlight"
   name="Microsoft Silverlight"
@@ -18,3 +20,5 @@
   <remove cmd='msiexec /qn /x{89F4137D-6C26-4A84-BDB8-2E5A4BB71E00}' />
 
 </package>
+
+</packages>
