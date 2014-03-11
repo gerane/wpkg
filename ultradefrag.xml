@@ -13,7 +13,7 @@
 <package
   id="ultradefrag"
   name="Ultra Defragmenter"
-  revision="%version%-1"
+  revision="%version%-2"
   reboot="false"
   priority="10">
 
@@ -35,8 +35,8 @@
   <downgrade include='install'  />
 
   <remove include='delete_task' />
-  <remove cmd='"%SystemRoot%\UltraDefrag\uninstall.exe" /S'><exit code='1' /></remove>
-  <remove cmd='"%PROGRAMFILES%\UltraDefrag\uninstall.exe" /S'><exit code='1' /></remove>
+  <remove cmd='"%SystemRoot%\UltraDefrag\uninstall.exe" /S'><exit code='-1' /></remove>
+  <remove cmd='"%PROGRAMFILES%\UltraDefrag\uninstall.exe" /S'><exit code='-1' /></remove>
   <remove cmd='%COMSPEC% /c if exist "%SystemRoot%\UltraDefrag" rmdir /s /q "%SystemRoot%\UltraDefrag"' />
 
   <commands>
